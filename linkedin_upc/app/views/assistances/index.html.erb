@@ -1,0 +1,33 @@
+<h1>Listing assistances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Concert</th>
+      <th>User</th>
+      <th>Assistance flag</th>
+      <th>Score</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assistances.each do |assistance| %>
+      <tr>
+        <td><%= assistance.concert_id %></td>
+        <td><%= assistance.user_id %></td>
+        <td><%= assistance.assistance_flag %></td>
+        <td><%= assistance.score %></td>
+        <td><%= link_to 'Show', assistance %></td>
+        <td><%= link_to 'Edit', edit_assistance_path(assistance) %></td>
+        <td><%= link_to 'Destroy', assistance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assistance', new_assistance_path %>

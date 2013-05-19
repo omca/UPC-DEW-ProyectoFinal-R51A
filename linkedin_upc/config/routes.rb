@@ -1,4 +1,24 @@
 LinkedinUpc::Application.routes.draw do
+  resources :comments
+
+  resources :assistances
+
+  resources :concerts
+
+  resources :locals
+
+  resources :bands
+
+  resources :users
+
+  resources :districts
+
+  resources :doc_types
+
+  resources :user_types
+
+  resources :styles
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  concert_id: 1
+  user_id: 1
+  assistance_flag: 1
+  score: 1
+
+two:
+  concert_id: 1
+  user_id: 1
+  assistance_flag: 1
+  score: 1
