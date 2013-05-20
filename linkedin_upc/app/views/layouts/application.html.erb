@@ -8,7 +8,29 @@
 </head>
 <body>
 
-<%= yield %>
+
+<div id="general">
+
+	<div id="head" 
+	style="font-size:50px; color: #212154; text-align:center; height:30px; padding-top: 10px">
+		Linkedin - UPC
+	</div>
+
+	<div id="content">
+		<div id="left">left</div>
+		<div id="center">
+			<%= yield %>
+		</div>
+		
+		<div id="right">right</div>
+		<div style="clear:both"></div>
+	</div>
+	
+	<div id="foot">
+		LinkedIn-UPC Corporation © 2013
+
+	</div>
+</div>
 
 </body>
 </html>

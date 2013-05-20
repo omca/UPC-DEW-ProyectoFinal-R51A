@@ -11,3 +11,88 @@
  *= require_self
  *= require_tree .
  */
+
+
+
+#general{
+	margin: 20px;
+	padding: 10px;
+	border: 1px solid red
+}
+
+#head{
+	border: 1px solid blue;
+	margin: 5px;
+}
+
+#content{
+	border: 1px solid green;
+	margin: 5px;
+}
+
+#content #left{
+	border: 1px solid #BE961E;
+	margin: 5px;
+	float: left;
+	width:100px;
+}
+
+#content #center{
+	border: 1px solid #C248E5;
+	margin: 5px;
+	float: left;
+	width: 1020px;	
+}
+
+#content #right{
+	border: 1px solid #40703F;
+	margin: 5px;
+	float: left;
+	width: 100px;
+}
+
+#foot{
+	border: 1px solid orange;
+	margin: 5px;
+	clear: both;
+	text-align: center; 
+	font-weight: bold;
+}
+
+#div_form{
+	width:400px; 
+	
+}
+
+.lbl_left_form {
+	float: left;
+	width:160px;
+	text-align:right;
+	padding-right:10px;
+	margin: 4px 0 5px;
+}
+
+.div_right_form {
+	float: left;
+	margin-left:15px;
+	width: 220px;
+}
+
+.cajitas{
+	width: 220px;
+	border: 1px solid #A0A0A0;
+	margin-bottom: 10px;
+	height: 24px;
+	font-family: verdana, arial, 'Comic Sans MS';
+	font-size: 12px;
+	padding: 1px;
+}
+
+.botones{
+	margin-left: 140px;
+}
+
+form ul li{
+	list-style-type: none;
+	border: 1px  solid red;
+}
