@@ -71,4 +71,5 @@ class BandsController < ApplicationController
     def band_params
       params.require(:band).permit(:name, :user_id, :style_id)
     end
-end
+end 
+ 
