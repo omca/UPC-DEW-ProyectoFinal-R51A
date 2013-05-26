@@ -3,15 +3,15 @@
 <table> 
   <thead>
     <tr>
-      <th>User type</th>
-      <th>Name</th>
-      <th>Last name</th>
-      <th>Surname</th>
-      <th>Gender</th>
-      <th>Doc type</th>
-      <th>Doc number</th>
-      <th>User name</th>
-      <th>Mail</th>
+      <th>Tipo de Usuario</th>
+      <th>Nombre</th>
+      <th>Ape. Paterno</th>
+      <th>Ape. Materno</th>
+      <th>Genero</th>
+      <th>Tipo Doc.</th>
+      <th>Numero Doc.</th>
+      <th>Usuario</th>
+      <th>Email</th>
       <th>Password</th>
       <th></th>
       <th></th>
@@ -32,9 +32,9 @@
         <td><%= user.user_name %></td>
         <td><%= user.mail %></td>
         <td><%= user.password %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', user %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

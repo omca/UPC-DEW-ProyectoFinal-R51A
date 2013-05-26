@@ -11,6 +11,7 @@ class UserTypesController < ApplicationController
   # GET /user_types/1.json
   def show
   end
+  
 
   # GET /user_types/new
   def new

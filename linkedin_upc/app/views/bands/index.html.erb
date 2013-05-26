@@ -1,11 +1,11 @@
-<h1>Listing bands</h1>
+<h1>Registro de Grupos de Musica</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>User</th>
-      <th>Style</th>
+      <th>Nombre</th>
+      <th>Usuarios</th>
+      <th>Estilo de musica</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,11 +16,11 @@
     <% @bands.each do |band| %>
       <tr>
         <td><%= band.name %></td>
-        <td><%= band.user_id %></td>
-        <td><%= band.style_id %></td>
-        <td><%= link_to 'Show', band %></td>
-        <td><%= link_to 'Edit', edit_band_path(band) %></td>
-        <td><%= link_to 'Destroy', band, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= band.user.name %></td>
+        <td><%= band.style.name %></td>
+        <td><%= link_to 'Ver', band %></td>
+        <td><%= link_to 'Editar', edit_band_path(band) %></td>
+        <td><%= link_to 'Eliminar', band, method: :delete, data: { confirm: 'Esta seguro que desea eliminar?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Band', new_band_path %>
+<%= link_to 'Nuevo Grupo', new_band_path %>

@@ -11,6 +11,7 @@ class DocTypesController < ApplicationController
   # GET /doc_types/1.json
   def show
   end
+  
 
   # GET /doc_types/new
   def new

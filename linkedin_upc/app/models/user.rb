@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
 	has_one :user_type
-
-end 
+	has_many :bands
+end
