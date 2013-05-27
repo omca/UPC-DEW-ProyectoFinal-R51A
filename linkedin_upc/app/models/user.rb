@@ -3,5 +3,5 @@ class User < ActiveRecord::Base
 	has_many :bands
 
 
-
+	# change online
 end
