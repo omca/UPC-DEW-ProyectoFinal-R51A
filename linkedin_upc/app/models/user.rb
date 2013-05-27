@@ -4,4 +4,11 @@ class User < ActiveRecord::Base
 
 	
 	# change localmente
+	
+	
+	
+	
+	
+	
+	#s
 end
