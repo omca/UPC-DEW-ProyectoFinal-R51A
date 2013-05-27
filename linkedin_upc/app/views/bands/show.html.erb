@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @band.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @band.user_id %>
+  <strong>Usuarios:</strong>
+  <%= @band.user.name %>
 </p>
 
 <p>
-  <strong>Style:</strong>
-  <%= @band.style_id %>
+  <strong>Estilos:</strong>
+  <%= @band.style.name %>
 </p>
 
-<%= link_to 'Edit', edit_band_path(@band) %> |
-<%= link_to 'Back', bands_path %>
+<%= link_to 'Editar', edit_band_path(@band) %> |
+<%= link_to 'Atrás', bands_path %>

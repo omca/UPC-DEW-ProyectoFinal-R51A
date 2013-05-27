@@ -28,7 +28,7 @@ class BandsController < ApplicationController
 
     respond_to do |format|
       if @band.save
-        format.html { redirect_to @band, notice: 'Band was successfully created.' }
+        format.html { redirect_to @band, notice: 'Se ha creado satisfactoriamente.' }
         format.json { render action: 'show', status: :created, location: @band }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class BandsController < ApplicationController
   def update
     respond_to do |format|
       if @band.update(band_params)
-        format.html { redirect_to @band, notice: 'Band was successfully updated.' }
+        format.html { redirect_to @band, notice: 'Se ha editado satisfactoriamente.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -71,4 +71,5 @@ class BandsController < ApplicationController
     def band_params
       params.require(:band).permit(:name, :user_id, :style_id)
     end
-end
+end 
+ 
