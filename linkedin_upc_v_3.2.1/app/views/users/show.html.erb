@@ -1,55 +1,54 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>User type:</b>
+  <strong>Tipo de Usuario:</strong>
   <%= @user.user_type_id %>
 </p>
 
 <p>
-  <b>Name:</b>
+  <strong>Nombre:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <b>Last name:</b>
+  <strong>Apellido Paterno:</strong>
   <%= @user.last_name %>
 </p>
 
 <p>
-  <b>Surname:</b>
+  <strong>Apellido Materno:</strong>
   <%= @user.surname %>
 </p>
 
 <p>
-  <b>Gender:</b>
+  <strong>Sexo:</strong>
   <%= @user.gender %>
 </p>
 
 <p>
-  <b>Doc type:</b>
+  <strong>Tipo de Documento:</strong>
   <%= @user.doc_type_id %>
 </p>
 
 <p>
-  <b>Doc number:</b>
+  <strong>Num. Documento:</strong>
   <%= @user.doc_number %>
 </p>
 
 <p>
-  <b>User name:</b>
+  <strong>Usuario:</strong>
   <%= @user.user_name %>
 </p>
 
 <p>
-  <b>Mail:</b>
+  <strong>Email:</strong>
   <%= @user.mail %>
 </p>
 
 <p>
-  <b>Password:</b>
+  <strong>Password:</strong>
   <%= @user.password %>
 </p>
-
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

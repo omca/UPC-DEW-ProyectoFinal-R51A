@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LinkedinUpcV321</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title>LinkedinUpc</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+</head>
+<body> 
+
+
+<div id="general">
+
+	<div id="head" 
+	style="font-size:50px; color: #212154; text-align:center; height:30px; padding-top: 10px">
+		Linkedin - UPC
+	</div>
+
+	<div id="content">
+		<div id="left">left</div>
+		<div id="center">
+			<%= yield %>
+		</div>
+		
+		<div id="right">right</div>
+		<div style="clear:both"></div>
+	</div>
+	
+	<div id="foot">
+		LinkedIn-UPC Corporation © 2013
+
+	</div>
+</div>
 
 </body>
 </html>

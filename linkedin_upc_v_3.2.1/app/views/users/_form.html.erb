@@ -10,48 +10,78 @@
       </ul>
     </div>
   <% end %>
+  
+  <div id="div_form">
+      <label>
+        <span> <%= f.label :Tipo_de_Usuario, 'class' => 'lbl_left_form' %> </span>
+        <%= f.collection_select :user_type_id, UserType.all, 
+        :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+      </label>
 
-  <div class="field">
-    <%= f.label :user_type_id %><br />
-    <%= f.text_field :user_type_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :surname %><br />
-    <%= f.text_field :surname %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :doc_type_id %><br />
-    <%= f.text_field :doc_type_id %>
-  </div>
-  <div class="field">
-    <%= f.label :doc_number %><br />
-    <%= f.text_field :doc_number %>
-  </div>
-  <div class="field">
-    <%= f.label :user_name %><br />
-    <%= f.text_field :user_name %>
-  </div>
-  <div class="field">
-    <%= f.label :mail %><br />
-    <%= f.text_field :mail %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+      <label>
+        <span> <%= f.label :Nombre, 'class' => 'lbl_left_form' %> </span>
+        <%= f.text_field :name, 'class' => 'cajitas' %>
+      </label>
+
+      <label>
+        <span> <%= f.label :Apellido_Paterno, 'class' => 'lbl_left_form' %> </span>
+        <%= f.text_field :last_name, 'class' => 'cajitas' %>
+      </label>
+    
+
+      <label>
+        <%= f.label :Apellido_Materno, 'class' => 'lbl_left_form' %>
+        <%= f.text_field :surname, 'class' => 'cajitas' %>
+      </label>  
+
+      <label>
+        <%= f.label :Sexo, 'class' => 'lbl_left_form' %>
+        <select name="post[author_id]" class="cajitas">
+          <option value="" selected="selected">Seleccionar</option>
+          <option value="1">Masculino</option>
+          <option value="2">Femenino</option>
+        </select>
+      </label>
+
+      <label>
+          <%= f.label :Tipo_de_Documento, 'class' => 'lbl_left_form' %>
+          <%= f.collection_select :doc_type_id, DocType.all, :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+      </label>  
+
+      <label>
+        <%= f.label :Num_Documento, 'class' => 'lbl_left_form' %>
+        <%= f.text_field :doc_number, 'class' => 'cajitas' %>
+      </label>
+
+      <label>
+        <%= f.label :Usuario, 'class' => 'lbl_left_form' %>
+        <%= f.text_field :user_name, 'class' => 'cajitas' %>
+      </label>
+
+      <label>
+        <%= f.label :Email, 'class' => 'lbl_left_form' %>
+        <%= f.text_field :mail, 'class' => 'cajitas' %>
+      </label>
+
+      <label>
+        <%= f.label :Confirmar_Email, 'class' => 'lbl_left_form' %>
+        <%= f.text_field :mail, 'class' => 'cajitas' %>
+      </label>
+      
+      <label>
+        <%= f.label :Password, 'class' => 'lbl_left_form' %>
+        <%= f.text_field :password, 'class' => 'cajitas' %>
+      </label>
+
+      <label>
+        <%= f.label :Confirmar_Password, 'class' => 'lbl_left_form' %>
+        <%= f.text_field :password_confirmation, 'class' => 'cajitas' %>
+      </label>
+
+      <div>
+        <%= f.submit "Registrar Usuario", :class => "botones" %>
+      </div>
+
+
   </div>
 <% end %>
