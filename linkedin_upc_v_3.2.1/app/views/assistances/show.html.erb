@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Concert:</b>
+  <%= @assistance.concert_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @assistance.user_id %>
+</p>
+
+<p>
+  <b>Assistance flag:</b>
+  <%= @assistance.assistance_flag %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @assistance.score %>
+</p>
+
+
+<%= link_to 'Edit', edit_assistance_path(@assistance) %> |
+<%= link_to 'Back', assistances_path %>

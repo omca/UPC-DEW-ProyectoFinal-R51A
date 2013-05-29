@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: 
+  address: 
+  district_id: 
+  maps_x: 
+  maps_y: 
+  phone: MyString
+
+two:
+  name: 
+  address: 
+  district_id: 
+  maps_x: 
+  maps_y: 
+  phone: MyString

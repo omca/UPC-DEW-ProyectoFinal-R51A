@@ -1,4 +1,34 @@
 LinkedinUpcV321::Application.routes.draw do
+  resources :comments
+
+
+  resources :assistances
+
+
+  resources :concerts
+
+
+  resources :locals
+
+
+  resources :bands
+
+
+  resources :districts
+
+
+  resources :doc_types
+
+
+  resources :user_types
+
+
+  resources :styles
+
+
+  resources :users
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

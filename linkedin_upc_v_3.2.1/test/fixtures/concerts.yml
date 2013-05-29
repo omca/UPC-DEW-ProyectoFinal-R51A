@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: 
+  local_id: 
+  band_id: 
+  date: 
+  begin_time,: 
+  end_time: 
+  status: MyString
+
+two:
+  name: 
+  local_id: 
+  band_id: 
+  date: 
+  begin_time,: 
+  end_time: 
+  status: MyString
