@@ -18,18 +18,18 @@
   <tr>
     <td><%= concert.name %></td>
     <td><%= concert.local_id %></td>
-    <td><%= concert.band_id %></td>
+    <td><%= concert.band.name %></td>
     <td><%= concert.date %></td>
     <td><%= concert.begin_time %></td>
     <td><%= concert.end_time %></td>
     <td><%= concert.status %></td>
-    <td><%= link_to 'Show', concert %></td>
-    <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
-    <td><%= link_to 'Destroy', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Ver', concert %></td>
+    <td><%= link_to 'Editar', edit_concert_path(concert) %></td>
+    <td><%= link_to 'Eliminar', concert, method: :delete, data: { confirm: 'Esta seguro que desea eliminar?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Concert', new_concert_path %>
+<%= link_to 'Nuevo Concierto', new_concert_path %>

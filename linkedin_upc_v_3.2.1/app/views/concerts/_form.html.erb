@@ -12,19 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :nombre %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :local_id %><br />
     <%= f.text_field :local_id %>
   </div>
+
   <div class="field">
-    <%= f.label :band_id %><br />
-    <%= f.text_field :band_id %>
+    <%= f.label :banda %><br>
+    <%= f.collection_select :band_id,
+      Style.all, :id, :name, :prompt =>true %>
   </div>
   <div class="field">
-    <%= f.label :date %><br />
+    <%= f.label :fecha %><br />
     <%= f.text_field :date %>
   </div>
   <div class="field">
