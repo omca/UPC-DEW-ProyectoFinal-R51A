@@ -1,40 +1,56 @@
+<% contador = 1 %>
+
 <h1>Listing users</h1>
 
-<table>
+<table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
   <thead>
     <tr>
+      <th><input type="checkbox" name="chk" id="chk"/></th>
       <th>User type</th>
       <th>Name</th>
       <th>Last name</th>
       <th>Surname</th>
-      <th>Gender</th>
-      <th>Doc type</th>
-      <th>Doc number</th>
+      
       <th>User name</th>
       <th>Mail</th>
       <th>Password</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th colspan=3>Opciones</th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.user_type_id %></td>
+      <% contador+=1; %>
+      <% if contador % 2 != 0 %> 
+        <% @clase = "fila_par detalle"  %>
+      <% else %>
+        <% @clase = "fila_impar detalle"  %>
+      <% end %>
+    
+      <tr class="<%= @clase %>" >
+        <td width="10"><input type="checkbox" name="chk" id="chk"/></td>
+        <td><%= user.user_type.name %></td>
         <td><%= user.name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.surname %></td>
-        <td><%= user.gender %></td>
-        <td><%= user.doc_type_id %></td>
-        <td><%= user.doc_number %></td>
         <td><%= user.user_name %></td>
         <td><%= user.mail %></td>
         <td><%= user.password %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to user do %>
+            <%= image_tag('/assets/search.png') %>
+          <% end %>
+        </td>
+
+        <td>
+          <%= link_to edit_user_path(user) do %>
+            <%= image_tag('/assets/editar.png') %>
+          <% end %>
+        <td>
+          <%= link_to user, method: :delete, data: { confirm: '¿Estas Seguro de Eliminar?' } do %>
+            <%= image_tag('/assets/eliminar.png') %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

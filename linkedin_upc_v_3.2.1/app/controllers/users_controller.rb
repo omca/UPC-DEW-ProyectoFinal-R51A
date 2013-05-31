@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+
     @users = User.all
 
     respond_to do |format|
@@ -41,6 +42,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+
+    @pu = User.find(4)
+    puts (@pu);
 
     respond_to do |format|
       if @user.save

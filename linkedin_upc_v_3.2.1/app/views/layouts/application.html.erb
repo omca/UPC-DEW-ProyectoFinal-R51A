@@ -4,7 +4,71 @@
   <title>LinkedinUpc</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "jquery/jquery-1.7.2.min", "data-turbolinks-track" => true %>
+  
   <%= csrf_meta_tags %>
+
+        
+        <style type="text/css">
+            #myTable{
+                background-color: #CDCDCD;
+                font-family: arial;
+                font-size: 8pt;
+                text-align: left;
+                width: 100%;
+            }
+            
+            #myTable thead tr th{
+                background-color: #000040;
+                font-size: 8pt;
+                padding: 4px; 
+                color: #FFF;
+                text-align: center;
+                font-family: 'Trebuchet MS';
+            }
+
+            #myTable tbody tr td{
+                padding: 4px;
+                font-family: 'Trebuchet MS';
+            }
+            #myTable tbody tr.fila_par{
+                background-color: #F0F0F6;
+            }
+            #myTable tbody tr.fila_impar{
+                background-color: #FFF;
+            }
+            #myTable tbody tr:hover{
+                background-color: #F3FA83;
+                cursor: pointer;
+            }
+            
+            #myTable .pinta_fila {
+                background: #F3FA83 !important;
+            }
+            /*
+            #myTable .pinta_header {
+                background: blue !important;
+            }*/
+        </style> 
+
+
+	<script type="text/javascript">
+	    
+	    $(document).ready(function(){
+	    	
+	        $("#myTable .detalle").live('click',function(){
+	            $(this).toggleClass('pinta_fila');
+	        });
+	        $("#myTable .detalle").live('mouseover',function(){
+	            $(this).css({'color':'#149631','background-color':'#D8C4BA'});
+	        });
+	        $("#myTable .detalle").live('mouseout',function(){
+	            $(this).css({'color':'','background-color':''});
+	        });
+	    })
+	    
+	</script>
+
 
 </head>
 <body> 
@@ -12,18 +76,33 @@
 
 <div id="general">
 
-	<div id="head" 
-	style="font-size:50px; color: #212154; text-align:center; height:30px; padding-top: 10px">
-		Linkedin - UPC
+	<div id="head">
+		
 	</div>
 
 	<div id="content">
-		<div id="left">left</div>
+		<div id="left">
+			<div id="menu">
+				<ul>
+					<li>Asistencias</li>
+					<li>Bandas</li>
+					<li>Comentarios</li>
+					<li>Conciertos</li>
+					<li>Distritos</li>
+					<li>Tipos Documentos</li>
+					<li>Locales</li>
+					<li>Estilos</li>
+					<li>Tipos Usuarios</li>
+					<li>Usuarios</li>
+				</ul>
+			</div>
+
+		</div>
 		<div id="center">
 			<%= yield %>
 		</div>
 		
-		<div id="right">right</div>
+		
 		<div style="clear:both"></div>
 	</div>
 	

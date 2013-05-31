@@ -12,34 +12,67 @@
  *= require_tree .
  */
 
+body {
+	border: 1px solid #838383;
+	margin: 30px 119px 50px 120px;
+}
+
 #general{
-	margin: 20px;
-	padding: 10px;
-	border: 1px solid red
+	margin: 1px;
+	padding: 0px;
+	border-left: 10px solid #D7D7D7;
+	border-right: 10px solid #D7D7D7;
+	
 }
 
 #head{
-	border: 1px solid blue;
-	margin: 5px;
+	font-size:50px;
+	color: #212154;
+	text-align:center;
+	height: 118px;
+	padding-top: 10px;
+	background: url("/assets/banner10.jpg") no-repeat scroll left center transparent;
 }
 
 #content{
-	border: 1px solid green;
-	margin: 5px;
+	border-top: 1px solid green;
+	
 }
 
 #content #left{
-	border: 1px solid #BE961E;
 	margin: 5px;
 	float: left;
-	width:100px;
+	width: 210px;
+	border-right: 1px solid #008000;
+}
+
+#content #left #menu ul {
+	padding-left: 9px;
+}
+
+
+#content #left #menu ul li{
+	list-style-type: none;
+	background: url("/assets/lista_menu.jpg") no-repeat scroll left center transparent;
+	float: left;
+	width: 147px;
+	padding: 10px 10px 10px 45px;
+	text-align: left;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-family: Arial, sans-serif, Helvetica;
+}
+
+
+#content #left #menu ul li:hover{
+	background: url("/assets/lista_menu_hover.jpg") no-repeat scroll left center transparent;
 }
 
 #content #center{
-	border: 1px solid #C248E5;
 	margin: 5px;
 	float: left;
-	width: 1020px;	
+	width: 815px;	
 }
 
 #content #right{
