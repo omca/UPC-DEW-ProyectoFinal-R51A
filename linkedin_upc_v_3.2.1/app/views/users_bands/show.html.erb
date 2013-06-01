@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Band:</b>
+  <%= @users_band.band_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @users_band.user_id %>
+</p>
+
+<p>
+  <b>Create user:</b>
+  <%= @users_band.create_user %>
+</p>
+
+<p>
+  <b>Edit user:</b>
+  <%= @users_band.edit_user %>
+</p>
+
+
+<%= link_to 'Edit', edit_users_band_path(@users_band) %> |
+<%= link_to 'Back', users_bands_path %>
