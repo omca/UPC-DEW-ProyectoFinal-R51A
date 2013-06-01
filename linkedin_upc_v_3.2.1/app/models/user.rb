@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   	belongs_to :user_type
   	belongs_to :doc_type
   	belongs_to :sex
-  	has_many :bands
+  	has_many :users_bands
+  	has_many :assistances
 
 	validates_presence_of :user_type_id, :name, :last_name, :surname, 
 	:doc_type_id, :doc_number, :user_name, :mail, :password, :sex_id
