@@ -15,6 +15,6 @@
   <%= @band.style_id %>
 </p>
 
-
+<%= gmaps4rails(@json) %>
 <%= link_to 'Edit', edit_band_path(@band) %> |
 <%= link_to 'Back', bands_path %>

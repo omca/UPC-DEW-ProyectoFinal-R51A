@@ -16,13 +16,13 @@
 </p>
 
 <p>
-  <b>Maps x:</b>
-  <%= @local.maps_x %>
+  <b>Longitude:</b>
+  <%= @local.longitude %>
 </p>
 
 <p>
-  <b>Maps y:</b>
-  <%= @local.maps_y %>
+  <b>Latitude:</b>
+  <%= @local.latitude %>
 </p>
 
 <p>
@@ -30,6 +30,11 @@
   <%= @local.phone %>
 </p>
 
+<p>
+  <b>Gmaps:</b>
+  <%= @local.gmaps %>
+</p>
 
+<%= gmaps4rails(@json) %>
 <%= link_to 'Edit', edit_local_path(@local) %> |
 <%= link_to 'Back', locals_path %>

@@ -21,19 +21,23 @@
   </div>
   <div class="field">
     <%= f.label :district_id %><br />
-    <%= f.text_field :district_id %>
+    <%= f.number_field :district_id %>
   </div>
   <div class="field">
-    <%= f.label :maps_x %><br />
-    <%= f.text_field :maps_x %>
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
   </div>
   <div class="field">
-    <%= f.label :maps_y %><br />
-    <%= f.text_field :maps_y %>
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
   </div>
   <div class="field">
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :gmaps %><br />
+    <%= f.check_box :gmaps %>
   </div>
   <div class="actions">
     <%= f.submit %>
