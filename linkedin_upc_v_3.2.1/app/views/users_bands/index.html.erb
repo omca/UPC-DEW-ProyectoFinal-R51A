@@ -1,0 +1,29 @@
+<h1>Listing users_bands</h1>
+
+<table>
+  <tr>
+    <th>Band</th>
+    <th>User</th>
+    <th>Create user</th>
+    <th>Edit user</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users_bands.each do |users_band| %>
+  <tr>
+    <td><%= users_band.band_id %></td>
+    <td><%= users_band.user_id %></td>
+    <td><%= users_band.create_user %></td>
+    <td><%= users_band.edit_user %></td>
+    <td><%= link_to 'Show', users_band %></td>
+    <td><%= link_to 'Edit', edit_users_band_path(users_band) %></td>
+    <td><%= link_to 'Destroy', users_band, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Users band', new_users_band_path %>
