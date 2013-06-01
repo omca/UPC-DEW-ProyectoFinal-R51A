@@ -2,24 +2,16 @@
 
 <p>
   <b>Band:</b>
-  <%= @users_band.band_id %>
+  <%= @users_band.band.name %>
 </p>
 
 <p>
-  <b>User:</b>
-  <%= @users_band.user_id %>
-</p>
-
-<p>
-  <b>Create user:</b>
-  <%= @users_band.create_user %>
-</p>
-
-<p>
-  <b>Edit user:</b>
-  <%= @users_band.edit_user %>
+  <strong>Usuarios:</strong>
+  <%= @users_band.user.name %>
 </p>
 
 
-<%= link_to 'Edit', edit_users_band_path(@users_band) %> |
-<%= link_to 'Back', users_bands_path %>
+<%= link_to 'Editar', edit_users_band_path(@users_band) %> |
+<%= link_to 'Atrás', users_bands_path %>
+
+

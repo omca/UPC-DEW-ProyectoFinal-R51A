@@ -11,19 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :style_id %><br />
-    <%= f.number_field :style_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+<div id="div_form">
+
+      <label>
+        <span> <%= f.label :Nombre, 'class' => 'lbl_left_form' %> </span>
+        <%= f.text_field :name, 'class' => 'cajitas' %>
+      </label>
+
+      <label>
+        <span> <%= f.label :estilo, 'class' => 'lbl_left_form' %> </span>
+        <%= f.collection_select :style_id, Style.all, 
+        :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+      </label>
+
+
+      <div>
+        <%= f.submit "Registrar Grupo de Musica", :class => "botones" %>
+      </div>
+</div>
 <% end %>

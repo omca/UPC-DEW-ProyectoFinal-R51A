@@ -1,29 +1,52 @@
-<h1>Listing users_bands</h1>
+<% contador = 1 %>
 
-<table>
-  <tr>
-    <th>Band</th>
-    <th>User</th>
-    <th>Create user</th>
-    <th>Edit user</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Registro de Usuario por Grupo de Musica</h1>
 
-<% @users_bands.each do |users_band| %>
-  <tr>
-    <td><%= users_band.band_id %></td>
-    <td><%= users_band.user_id %></td>
-    <td><%= users_band.create_user %></td>
-    <td><%= users_band.edit_user %></td>
-    <td><%= link_to 'Show', users_band %></td>
-    <td><%= link_to 'Edit', edit_users_band_path(users_band) %></td>
-    <td><%= link_to 'Destroy', users_band, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
+  <thead>
+    <tr>
+      <th>Grupo de Musica</th>
+      <th>Usuarios</th>
+      <th colspan=3>Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users_bands.each do |users_band| %>
+    <% contador+=1; %>
+      <% if contador % 2 != 0 %> 
+        <% @clase = "fila_par detalle"  %>
+      <% else %>
+        <% @clase = "fila_impar detalle"  %>
+      <% end %>
+
+     <tr class="<%= @clase %>" >
+
+        <td><%= users_band.band.name %></td>
+        <td><%= users_band.user.name %></td>
+
+        <td>
+          <%= link_to users_band do %>
+          <%= image_tag('/assets/search.png') %>
+        <% end %>
+        </td>
+
+        <td>
+          <%= link_to edit_users_band_path(users_band) do %>
+          <%= image_tag('/assets/editar.png') %>
+          <% end %>
+        <td>
+        <%= link_to users_band, method: :delete, data: { confirm: '¿Estas Seguro de Eliminar?' } do %>
+        <%= image_tag('/assets/eliminar.png') %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
+<br>
 
-<%= link_to 'New Users band', new_users_band_path %>
+<%= link_to 'Nuevo Usuario por Grupo de Musica', new_users_band_path %>
+
+
