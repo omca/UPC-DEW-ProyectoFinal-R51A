@@ -1,11 +1,11 @@
 <% contador = 1 %>
 
-<h1>Listing users</h1>
+<h1>LISTAR USUARIOS</h1>
 
 <table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
   <thead>
     <tr>
-      <th><input type="checkbox" name="chk" id="chk"/></th>
+      
       <th>User type</th>
       <th>Name</th>
       <th>Last name</th>
@@ -28,7 +28,7 @@
       <% end %>
     
       <tr class="<%= @clase %>" >
-        <td width="10"><input type="checkbox" name="chk" id="chk"/></td>
+        
         <td><%= user.user_type.name %></td>
         <td><%= user.name %></td>
         <td><%= user.last_name %></td>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name abv:</b>
+  <%= @sex.name_abv %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @sex.name %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @sex.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_sex_path(@sex) %> |
+<%= link_to 'Back', sexes_path %>

@@ -1,4 +1,7 @@
 LinkedinUpcV321::Application.routes.draw do
+  resources :sexes
+
+
   resources :comments
 
 

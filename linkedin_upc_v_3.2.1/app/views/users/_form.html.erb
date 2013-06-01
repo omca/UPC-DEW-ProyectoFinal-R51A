@@ -27,7 +27,6 @@
         <span> <%= f.label :Apellido_Paterno, 'class' => 'lbl_left_form' %> </span>
         <%= f.text_field :last_name, 'class' => 'cajitas' %>
       </label>
-    
 
       <label>
         <%= f.label :Apellido_Materno, 'class' => 'lbl_left_form' %>
@@ -35,13 +34,9 @@
       </label>  
 
       <label>
-        <%= f.label :Sexo, 'class' => 'lbl_left_form' %>
-        <select name="user_sexo" class="cajitas">
-          <option value="" selected="selected">Seleccionar</option>
-          <option value="1">Masculino</option>
-          <option value="2">Femenino</option>
-        </select>
-      </label>
+          <%= f.label :Sexo, 'class' => 'lbl_left_form' %>
+          <%= f.collection_select :sex_id, Sex.all, :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+      </label>  
 
       <label>
           <%= f.label :Tipo_de_Documento, 'class' => 'lbl_left_form' %>
