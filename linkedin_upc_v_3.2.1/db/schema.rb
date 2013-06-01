@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601023035) do
+ActiveRecord::Schema.define(:version => 20130529053419) do
 
   create_table "assistances", :force => true do |t|
     t.integer  "concert_id"
@@ -26,12 +26,11 @@ ActiveRecord::Schema.define(:version => 20130601023035) do
 
   create_table "bands", :force => true do |t|
     t.string   "name"
-    t.integer  "user_id"
     t.integer  "style_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
     t.integer  "create_user"
     t.integer  "edit_user"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -99,8 +98,8 @@ ActiveRecord::Schema.define(:version => 20130601023035) do
     t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "create_user"
     t.integer  "edit_user"
+    t.integer  "create_user"
   end
 
   create_table "user_types", :force => true do |t|
@@ -124,6 +123,17 @@ ActiveRecord::Schema.define(:version => 20130601023035) do
     t.string   "password"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "create_user"
+    t.integer  "edit_user"
+  end
+
+  create_table "users_bands", :force => true do |t|
+    t.integer  "band_id"
+    t.integer  "user_id"
+    t.integer  "create_user"
+    t.integer  "edit_user"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
