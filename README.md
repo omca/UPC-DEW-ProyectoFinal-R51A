@@ -1,13 +1,12 @@
 UPC-DEW-ProyectoFinal-R51A
 ==========================
 
-Hola! :)
+INTEGRANTES DEL GRUPO DE DESARROLLO WEB - RED SOCIAL LINKEDIN
 
-Chau :(
+USUARIO               NOMBRE
 
-Proyecto Final DEW UPC 
-
-Bitácora (visibilidad "cualquiera que tenga link"
-Scrumy Link
-Github
-
+omca              -   Omar Calderon 
+Fbravoxperia      -   Freddy Bravo
+henryzevallosupc  -   Henry Zevallos
+patriciatrileq    -   Patricia Trinidad
+jquillatupa       -   Juan Quillatupa
