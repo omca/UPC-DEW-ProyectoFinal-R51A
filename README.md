@@ -10,3 +10,14 @@ Fbravoxperia      -   Freddy Bravo
 henryzevallosupc  -   Henry Zevallos
 patriciatrileq    -   Patricia Trinidad
 jquillatupa       -   Juan Quillatupa
+
+
+
+
+BITACORA
+
+SCRUMMY
+
+Y MAS DOCUMENTOS
+
+
