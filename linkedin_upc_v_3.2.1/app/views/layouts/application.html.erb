@@ -66,34 +66,28 @@
 	            $(this).css({'color':'','background-color':''});
 	        });
 	    })
-	    
 	</script>
-
-
 </head>
-<body> 
-
+<body>
 
 <div id="general">
-
 	<div id="head">
-		
 	</div>
-
+	
 	<div id="content">
 		<div id="left">
 			<div id="menu">
 				<ul>
-					<li>Asistencias</li>
-					<li>Bandas</li>
-					<li>Comentarios</li>
-					<li>Conciertos</li>
-					<li>Distritos</li>
-					<li>Tipos Documentos</li>
-					<li>Locales</li>
-					<li>Estilos</li>
-					<li>Tipos Usuarios</li>
-					<li>Usuarios</li>
+					<li><%= link_to  "Tipo de Documento", doc_types_path %></li>
+					<li><%= link_to  "Tipo de Usuarios", user_types_path %></li>
+					<li><%= link_to  "Usuarios", users_path %></li>
+					<li><%= link_to  "Asistencias", assistances_path %></li>
+					<li><%= link_to  "Estilos", styles_path %></li>
+					<li><%= link_to  "Bandas", bands_path %></li>
+					<li><%= link_to  "Distritos", districts_path %></li>
+					<li><%= link_to  "Locales", locals_path %></li>
+					<li><%= link_to  "Conciertos", concerts_path %></li>
+					<li><%= link_to  "Comentarios", comments_path %></li>
 				</ul>
 			</div>
 

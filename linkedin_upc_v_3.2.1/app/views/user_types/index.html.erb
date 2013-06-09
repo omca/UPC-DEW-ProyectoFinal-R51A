@@ -1,23 +1,60 @@
-<h1>Listing user_types</h1>
+<% contador = 1 %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="title">
+  <div id="texto">LISTAR TIPOS DE USUARIOS</div>
+  <div id="opciones">
+    <%= link_to new_user_type_path, :class => "link_img", :title => "Nuevo Tipo de Usuario" do %>
+      <%= image_tag('/assets/agregar.png') %>
+    <% end %>
+  </div>
+</div>
 
-<% @user_types.each do |user_type| %>
-  <tr>
-    <td><%= user_type.name %></td>
-    <td><%= link_to 'Show', user_type %></td>
-    <td><%= link_to 'Edit', edit_user_type_path(user_type) %></td>
-    <td><%= link_to 'Destroy', user_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+<% if @user_types.empty? %>
+  <div id="msje_no_filas">No existen tipos de usuarios registrados en el Sistema.</div>
+<% else %>
+
+  <table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
+    <thead>
+      <tr>
+        <th>Tipo de Usuario</th>
+        <th colspan=3>Opciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user_types.each do |user_type| %>
+        <% contador+=1; %>
+        <% if contador % 2 != 0 %> 
+          <% @clase = "fila_par detalle"  %>
+        <% else %>
+          <% @clase = "fila_impar detalle"  %>
+        <% end %>
+      
+        <tr class="<%= @clase %>" >
+          <td><%= user_type.name %></td>
+          <td>
+            <%= link_to user_type do %>
+              <%= image_tag('/assets/search.png') %>
+            <% end %>
+          </td>
+
+          <td>
+            <%= link_to edit_user_type_path(user_type) do %>
+              <%= image_tag('/assets/editar.png') %>
+            <% end %>
+          <td>
+            <%= link_to user_type, method: :delete, data: { confirm: '¿Estas Seguro de Eliminar?' } do %>
+              <%= image_tag('/assets/eliminar.png') %>
+            <% end %>
+          </td>
+          
+        </tr>
+      <% end %>
+    </tbody>
+  
+  </table>
 <% end %>
-</table>
-
 <br />
 
 <%= link_to 'New User type', new_user_type_path %>

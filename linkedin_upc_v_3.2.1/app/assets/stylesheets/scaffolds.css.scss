@@ -41,13 +41,18 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  /*background-color: red;*/
   display: table;
+}
+.field_with_errors input{
+  border: 1px  solid #F1510C !important;
+}
+.field_with_errors select{
+  border: 1px  solid #F1510C !important;
 }
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
@@ -59,11 +64,12 @@ div {
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
-    background-color: #c00;
+    background-color: #C14009;
     color: #fff;
   }
   ul li {
     font-size: 12px;
     list-style: square;
+    border: 0px;
   }
 }
