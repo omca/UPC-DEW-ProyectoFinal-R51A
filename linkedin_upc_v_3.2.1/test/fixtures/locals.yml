@@ -1,17 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: 
-  address: 
-  district_id: 
-  maps_x: 
-  maps_y: 
+  name: MyString
+  address: MyString
+  district_id: 1
+  longitude: 1.5
+  latitude: 1.5
   phone: MyString
+  gmaps: false
 
 two:
-  name: 
-  address: 
-  district_id: 
-  maps_x: 
-  maps_y: 
+  name: MyString
+  address: MyString
+  district_id: 1
+  longitude: 1.5
+  latitude: 1.5
   phone: MyString
+  gmaps: false

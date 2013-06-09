@@ -3,4 +3,5 @@ class UsersBand < ActiveRecord::Base
 
   belongs_to :band
   belongs_to :user
+  validates_presence_of :band_id, :user_id
 end

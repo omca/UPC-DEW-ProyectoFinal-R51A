@@ -67,13 +67,9 @@ div {
     background-color: #C14009;
     color: #fff;
   }
-  ul {
-    line-height:16px;
-  }
   ul li {
-    list-style: circle;
+    font-size: 12px;
+    list-style: square;
     border: 0px;
-    font-size: 11px; 
-    font-family: verdana
   }
 }

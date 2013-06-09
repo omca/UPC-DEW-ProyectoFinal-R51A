@@ -5,9 +5,10 @@
     <th>Name</th>
     <th>Address</th>
     <th>District</th>
-    <th>Maps x</th>
-    <th>Maps y</th>
+    <th>Longitude</th>
+    <th>Latitude</th>
     <th>Phone</th>
+    <th>Gmaps</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,9 +19,10 @@
     <td><%= local.name %></td>
     <td><%= local.address %></td>
     <td><%= local.district_id %></td>
-    <td><%= local.maps_x %></td>
-    <td><%= local.maps_y %></td>
+    <td><%= local.longitude %></td>
+    <td><%= local.latitude %></td>
     <td><%= local.phone %></td>
+    <td><%= local.gmaps %></td>
     <td><%= link_to 'Show', local %></td>
     <td><%= link_to 'Edit', edit_local_path(local) %></td>
     <td><%= link_to 'Destroy', local, method: :delete, data: { confirm: 'Are you sure?' } %></td>

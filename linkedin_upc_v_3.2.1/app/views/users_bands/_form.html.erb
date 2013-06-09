@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :band_id %><br />
-    <%= f.number_field :band_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :create_user %><br />
-    <%= f.number_field :create_user %>
-  </div>
-  <div class="field">
-    <%= f.label :edit_user %><br />
-    <%= f.number_field :edit_user %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div id="div_form">
+
+      <label>
+        <span> <%= f.label :Grupos, 'class' => 'lbl_left_form' %> </span>
+        <%= f.collection_select :band_id, Band.all, 
+        :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+      </label>
+      <label>
+        <span> <%= f.label :usuario, 'class' => 'lbl_left_form' %> </span>
+        <%= f.collection_select :user_id, User.all, 
+        :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas1" %>
+      </label>
+
+
+      <div>
+        <%= f.submit "Registrar Usuarios por Grupo", :class => "botones" %>
+      </div>
+
+</div>
 <% end %>
