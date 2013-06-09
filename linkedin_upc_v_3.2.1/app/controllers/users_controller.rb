@@ -1,9 +1,20 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+
+  def login
+
+    session[:current_user_id] = "123456";
+    @prueba = session[:current_user_id];
+    
+  end
+
   def index
 
     @users = User.all
+
+    session[:current_user_id] = "123456";
+    @prueba = session[:current_user_id];
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,6 +37,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+    @paramId = 1;
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +48,14 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @paramId = 0;
+
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
 
     respond_to do |format|
       if @user.save
