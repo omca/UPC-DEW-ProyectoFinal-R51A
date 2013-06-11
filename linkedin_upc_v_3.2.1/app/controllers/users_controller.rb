@@ -3,13 +3,13 @@ class UsersController < ApplicationController
   # GET /users.json
 
   def login
-
     session[:current_user_id] = "123456";
     @prueba = session[:current_user_id];
-    
   end
 
   def index
+
+    session[:current_user_id] = false;
 
     @users = User.all
 

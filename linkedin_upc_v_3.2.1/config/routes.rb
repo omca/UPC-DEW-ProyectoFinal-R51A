@@ -1,7 +1,9 @@
 LinkedinUpcV321::Application.routes.draw do
 
-  root :to => "users#login"
+  root :to => "login#index"
 
+
+  resources :application
   resources :sexes
 
 

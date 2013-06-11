@@ -71,39 +71,46 @@
 <body>
 
 <div id="general">
-	<div id="head">
-	</div>
 	
-	<div id="content">
-		<div id="left">
-			<div id="menu">
-				<ul>
-					<li><%= link_to  "Tipo de Documento", doc_types_path %></li>
-					<li><%= link_to  "Tipo de Usuarios", user_types_path %></li>
-					<li><%= link_to  "Usuarios", users_path %></li>
-					<li><%= link_to  "Asistencias", assistances_path %></li>
-					<li><%= link_to  "Estilos", styles_path %></li>
-					<li><%= link_to  "Bandas", bands_path %></li>
-					<li><%= link_to  "Distritos", districts_path %></li>
-					<li><%= link_to  "Locales", locals_path %></li>
-					<li><%= link_to  "Conciertos", concerts_path %></li>
-					<li><%= link_to  "Comentarios", comments_path %></li>
-				</ul>
+	<% if (session[:current_user_id] == true) %>
+		<%= "11"  %>
+	
+		<div id="head">
+		</div>
+		
+		<div id="content">
+			<div id="left">
+				<div id="menu">
+					<ul>
+						<li><%= link_to  "Tipo de Documento", doc_types_path %></li>
+						<li><%= link_to  "Tipo de Usuarios", user_types_path %></li>
+						<li><%= link_to  "Usuarios", users_path %></li>
+						<li><%= link_to  "Asistencias", assistances_path %></li>
+						<li><%= link_to  "Estilos", styles_path %></li>
+						<li><%= link_to  "Bandas", bands_path %></li>
+						<li><%= link_to  "Distritos", districts_path %></li>
+						<li><%= link_to  "Locales", locals_path %></li>
+						<li><%= link_to  "Conciertos", concerts_path %></li>
+						<li><%= link_to  "Comentarios", comments_path %></li>
+					</ul>
+				</div>
+
 			</div>
-
-		</div>
-		<div id="center">
-			<%= yield %>
+			<div id="center">
+				<%= yield %>
+			</div>
+			
+			
+			<div style="clear:both"></div>
 		</div>
 		
-		
-		<div style="clear:both"></div>
-	</div>
-	
-	<div id="foot">
-		LinkedIn-UPC Corporation © 2013
+		<div id="foot">
+			LinkedIn-UPC Corporation © 2013
 
-	</div>
+		</div>
+	<% else %>
+	  <%= "22" %>
+	<% end %>
 </div>
 <%= yield :scripts%> 
 </body>
