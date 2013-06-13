@@ -25,6 +25,7 @@ class DocTypesController < ApplicationController
   # GET /doc_types/new.json
   def new
     @doc_type = DocType.new
+    @paramId = 1;
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,16 +36,18 @@ class DocTypesController < ApplicationController
   # GET /doc_types/1/edit
   def edit
     @doc_type = DocType.find(params[:id])
+    @paramId = 0;
   end
 
   # POST /doc_types
   # POST /doc_types.json
   def create
     @doc_type = DocType.new(params[:doc_type])
+    @paramId = 1;
 
     respond_to do |format|
       if @doc_type.save
-        format.html { redirect_to @doc_type, notice: 'Doc type was successfully created.' }
+        format.html { redirect_to @doc_type, notice: 'Tipo de Documento fue creado correctamente' }
         format.json { render json: @doc_type, status: :created, location: @doc_type }
       else
         format.html { render action: "new" }
@@ -60,7 +63,7 @@ class DocTypesController < ApplicationController
 
     respond_to do |format|
       if @doc_type.update_attributes(params[:doc_type])
-        format.html { redirect_to @doc_type, notice: 'Doc type was successfully updated.' }
+        format.html { redirect_to @doc_type, notice: 'Tipo de Documento fue actualizado correctamente' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -1,7 +1,7 @@
 <%= form_for(@doc_type) do |f| %>
   <% if @doc_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@doc_type.errors.count, "error") %> prohibited this doc_type from being saved:</h2>
+      <h2>Completar Datos</h2>
 
       <ul>
       <% @doc_type.errors.full_messages.each do |msg| %>
@@ -11,11 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div id="div_form">
+      <label>
+        <%= f.label :Nombre, 'class' => 'lbl_left_form' %>
+        <%= f.text_field :name, 'class' => 'cajitas' %>
+      </label>
+
+      <div style="margin-left:150px;">
+        <% if @paramId == 1 %>
+          <%= f.submit "Registrar",:class => "botones" %>
+        <% else %>
+          <%= f.submit "Actualizar", :class => "botones" %>
+        <% end %>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
 <% end %>

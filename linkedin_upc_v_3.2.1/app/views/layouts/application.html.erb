@@ -74,23 +74,26 @@
 		  <p class="notice"><%= flash[:alert] %></p>
 		<% end %>
 	</div>
-		<div id="head">				
-				<div style="margin-left:850px; float:left">
+		<div id="head">
+				<div style="width:750px; float:left">&nbsp;
+				</div>
+
+				<div style="float:left">
 					
 					<% if (session[:flag_session] == true) %>
-						<div style="text-align:right; width:400px;">
+						<div style="text-align:right; width:300px;">
 							<span style="font-weight:bold"><%= session[:user_id] %> <span>| <%= link_to "Salir", logout_path %>
 						</div>
 					<% else %>
 						<%= form_tag sessions_path, :id => 'frmLogin' do %>
-							  <div style="margin-bottom:15px;">
+							  <div style="margin-bottom:10px;">
 							  	<div style="width:0px;">
 							    	<%= label_tag :email, nil, :class => 'lblLogin' %>
 							    </div>
 							    <%= text_field_tag :email, params[:email] , :class => 'txtLogin'  %>
 							  </div>
 
-							  <div style="margin-bottom:15px;">
+							  <div style="margin-bottom:10px;">
 							  	<div style="width:0px;">
 							    	<%= label_tag :password, nil, :class => 'lblLogin' %>
 							    </div>
@@ -109,16 +112,16 @@
 				<div id="left">
 					<div id="menu">
 						<ul>
-							<li><%= link_to  "Tipo de Documento", doc_types_path %></li>
-							<li><%= link_to  "Tipo de Usuarios", user_types_path %></li>
-							<li><%= link_to  "Usuarios", users_path %></li>
-							<li><%= link_to  "Asistencias", assistances_path %></li>
-							<li><%= link_to  "Estilos", styles_path %></li>
-							<li><%= link_to  "Bandas", bands_path %></li>
-							<li><%= link_to  "Distritos", districts_path %></li>
-							<li><%= link_to  "Locales", locals_path %></li>
-							<li><%= link_to  "Conciertos", concerts_path %></li>
-							<li><%= link_to  "Comentarios", comments_path %></li>
+							<li><%= link_to  "Tipo de Documento", tipoDocumentos_path %></li>
+							<li><%= link_to  "Tipo de Usuarios", tipoUsuarios_path %></li>
+							<li><%= link_to  "Usuarios", usuarios_path %></li>
+							<li><%= link_to  "Asistencias", asistencias_path %></li>
+							<li><%= link_to  "Estilos", estilos_path %></li>
+							<li><%= link_to  "Bandas", bandas_path %></li>
+							<li><%= link_to  "Distritos", distritos_path %></li>
+							<li><%= link_to  "Locales", locales_path %></li>
+							<li><%= link_to  "Conciertos", conciertos_path %></li>
+							<li><%= link_to  "Comentarios", comentarios_path %></li>
 						</ul>
 					</div>
 
@@ -146,7 +149,7 @@
 				</div>
 			<% else %>
 
-				<div style="width:500px;float;left; margin:50px 0px 50px 400px;">
+				<div style="width:500px;float;left; margin:50px 0px 50px 350px;">
 					<%= form_for(@user) do |f| %>
 					  	<% if @user.errors.any? %>
 						    <div id="error_explanation">
@@ -226,7 +229,7 @@
 
 
 						      	<div>
-						        	<%= f.submit :class => "botones" %>
+						        	<%= f.submit "Registrar Usuario",:class => "botones" %>
 					     		</div>
 
 

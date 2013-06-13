@@ -30,7 +30,7 @@ body {
 	
 	color: #212154;
 	text-align:center;
-	height: 162px;
+	height: 140px;
 	background: url("/assets/portada2.jpg") no-repeat scroll left center transparent;
 
 }
@@ -84,7 +84,7 @@ body {
 #content #center{
 	margin: 5px;
 	float: left;
-	width: 815px;	
+	width: 650px;	
 }
 
 #content #right{
@@ -147,7 +147,7 @@ form ul li{
 	text-align: center;
 	padding: 5px 0px 5px 0px;
 	float: left;
-	width: 750px;
+	width: 620px;
 }
 
 #general #content #center #title #opciones {
@@ -168,21 +168,22 @@ form ul li{
 
 
 #frmLogin .lblLogin {
-	font-size: 15px;
+	font-size: 12px;
 	width:30px;
 }
 
 #frmLogin .txtLogin {
-	height: 25px;
+	height: 17px;
 	border: 1px solid #312B22;
 	width: 250px;
+	color: #6C5C72;
 	
 }
 
 #frmLogin .actions {
 	border-radius: 5px;
 	cursor: pointer;
-	height: 31px;
+	height: 26px;
 	width: 100px;
 }
 
