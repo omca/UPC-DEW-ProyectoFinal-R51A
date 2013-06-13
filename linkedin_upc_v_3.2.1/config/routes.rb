@@ -1,11 +1,21 @@
 LinkedinUpcV321::Application.routes.draw do
 
-  root :to => "login#index"
+  root :to => "sessions#index"
 
+  match "home" => "sessions#index"
+  
+  get "logout" => "sessions#destroy", :as => "logout"
+
+  get "registrarse" => "sessions#new", :as => "registrarse"
+  
 
   resources :application
+  
   resources :sexes
 
+  resources :sessions
+  
+  resources :logins
 
   resources :comments
 

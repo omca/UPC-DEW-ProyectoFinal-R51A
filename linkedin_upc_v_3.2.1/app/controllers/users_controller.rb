@@ -2,20 +2,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
 
-  def login
-    session[:current_user_id] = "123456";
-    @prueba = session[:current_user_id];
-  end
-
   def index
-
-    session[:current_user_id] = false;
-
     @users = User.all
-
-    session[:current_user_id] = "123456";
-    @prueba = session[:current_user_id];
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -26,7 +14,6 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -56,10 +43,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @paramId = 1;
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Usuario fue creado correctamente' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }

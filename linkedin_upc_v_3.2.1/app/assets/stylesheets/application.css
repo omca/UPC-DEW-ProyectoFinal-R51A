@@ -14,24 +14,25 @@
 
 body {
 	border: 1px solid #838383;
-	margin: 30px 119px 50px 120px;
+	margin: 0px 119px 50px 120px;
 }
 
 #general{
 	margin: 1px;
 	padding: 0px;
-	border-left: 10px solid #D7D7D7;
-	border-right: 10px solid #D7D7D7;
+	border-left: 4px solid #D7D7D7;
+	border-right: 4px solid #D7D7D7;
 	
 }
 
+
 #head{
-	font-size:50px;
+	
 	color: #212154;
 	text-align:center;
-	height: 118px;
-	padding-top: 10px;
-	background: url("/assets/banner10.jpg") no-repeat scroll left center transparent;
+	height: 162px;
+	background: url("/assets/portada2.jpg") no-repeat scroll left center transparent;
+
 }
 
 #content{
@@ -164,3 +165,31 @@ form ul li{
 #title a:hover{
 	background-color: #FFF;
 }
+
+
+#frmLogin .lblLogin {
+	font-size: 15px;
+	width:30px;
+}
+
+#frmLogin .txtLogin {
+	height: 25px;
+	border: 1px solid #312B22;
+	width: 250px;
+	
+}
+
+#frmLogin .actions {
+	border-radius: 5px;
+	cursor: pointer;
+	height: 31px;
+	width: 100px;
+}
+
+body #banner_sub_portada {
+	background: url("/assets/sub_portada.jpeg") no-repeat scroll left center transparent;
+	width: 1000px;
+	height: 690px;
+	margin-left: 120px;
+}
+

@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class LoginController < ApplicationController
   # GET /users
   # GET /users.json
 
@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def index
-
     @users = User.all
 
     session[:current_user_id] = "123456";

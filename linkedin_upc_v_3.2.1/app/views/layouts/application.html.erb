@@ -7,8 +7,6 @@
   <%= javascript_include_tag "jquery/jquery-1.7.2.min", "data-turbolinks-track" => true %>
   <%= yield :head%>
   <%= csrf_meta_tags %>
-
-        
         <style type="text/css">
             #myTable{
                 background-color: #CDCDCD;
@@ -71,46 +69,179 @@
 <body>
 
 <div id="general">
-	
-	<% if (session[:current_user_id] == true) %>
-		<%= "11"  %>
-	
-		<div id="head">
+	<div style="margin-left:850px; font-weight:bold">
+		<% if flash[:alert] %>
+		  <p class="notice"><%= flash[:alert] %></p>
+		<% end %>
+	</div>
+		<div id="head">				
+				<div style="margin-left:850px; float:left">
+					
+					<% if (session[:flag_session] == true) %>
+						<div style="text-align:right; width:400px;">
+							<span style="font-weight:bold"><%= session[:user_id] %> <span>| <%= link_to "Salir", logout_path %>
+						</div>
+					<% else %>
+						<%= form_tag sessions_path, :id => 'frmLogin' do %>
+							  <div style="margin-bottom:15px;">
+							  	<div style="width:0px;">
+							    	<%= label_tag :email, nil, :class => 'lblLogin' %>
+							    </div>
+							    <%= text_field_tag :email, params[:email] , :class => 'txtLogin'  %>
+							  </div>
+
+							  <div style="margin-bottom:15px;">
+							  	<div style="width:0px;">
+							    	<%= label_tag :password, nil, :class => 'lblLogin' %>
+							    </div>
+							    <%= password_field_tag :password, nil, :class => 'txtLogin' %>
+							  </div>
+							  <div>
+							  	<%= submit_tag "Ingresar", :class => 'actions' %>
+							  	<%= link_to "Registrarse", registrarse_path %>
+							  </div>
+						<% end %>
+					<% end %>
+				</div>
 		</div>
-		
-		<div id="content">
-			<div id="left">
-				<div id="menu">
-					<ul>
-						<li><%= link_to  "Tipo de Documento", doc_types_path %></li>
-						<li><%= link_to  "Tipo de Usuarios", user_types_path %></li>
-						<li><%= link_to  "Usuarios", users_path %></li>
-						<li><%= link_to  "Asistencias", assistances_path %></li>
-						<li><%= link_to  "Estilos", styles_path %></li>
-						<li><%= link_to  "Bandas", bands_path %></li>
-						<li><%= link_to  "Distritos", districts_path %></li>
-						<li><%= link_to  "Locales", locals_path %></li>
-						<li><%= link_to  "Conciertos", concerts_path %></li>
-						<li><%= link_to  "Comentarios", comments_path %></li>
-					</ul>
+		<% if (session[:flag_session] == true) %>
+			<div id="content">
+				<div id="left">
+					<div id="menu">
+						<ul>
+							<li><%= link_to  "Tipo de Documento", doc_types_path %></li>
+							<li><%= link_to  "Tipo de Usuarios", user_types_path %></li>
+							<li><%= link_to  "Usuarios", users_path %></li>
+							<li><%= link_to  "Asistencias", assistances_path %></li>
+							<li><%= link_to  "Estilos", styles_path %></li>
+							<li><%= link_to  "Bandas", bands_path %></li>
+							<li><%= link_to  "Distritos", districts_path %></li>
+							<li><%= link_to  "Locales", locals_path %></li>
+							<li><%= link_to  "Conciertos", concerts_path %></li>
+							<li><%= link_to  "Comentarios", comments_path %></li>
+						</ul>
+					</div>
+
+				</div>
+				<div id="center">
+					<%= yield %>
+				</div>
+				
+				
+				<div style="clear:both"></div>
+			</div>
+		<% else %>
+
+			<% if @paramId != 1 %>
+				
+					<% if flash[:notice] %>
+						<div style="font-weight:bold; text-align:center; margin: 20px 0px 0px 0px">	
+							<%= flash[:notice] %>
+						</div>
+						
+					<% end %>		
+					
+
+				<div id="banner_sub_portada">
+				</div>
+			<% else %>
+
+				<div style="width:500px;float;left; margin:50px 0px 50px 400px;">
+					<%= form_for(@user) do |f| %>
+					  	<% if @user.errors.any? %>
+						    <div id="error_explanation">
+						      <h2>Completar Datos</h2>
+
+						      <ul>
+						      <% @user.errors.full_messages.each do |msg| %>
+						        <li><%= msg %></li>
+						      <% end %>
+						      </ul>
+						    </div>
+					  	<% end %>
+						  
+						  	<div id="div_form">
+						      <label>
+						        <span> <%= f.label :Tipo_de_Usuario, 'class' => 'lbl_left_form' %> </span>
+						        <%= f.collection_select :user_type_id, UserType.all, 
+						        :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+						      </label>
+
+						      <label>
+						        <span> <%= f.label :Nombre, 'class' => 'lbl_left_form' %> </span>
+						        <%= f.text_field :name, 'class' => 'cajitas' %>
+						      </label>
+
+						      <label>
+						        <span> <%= f.label :Apellido_Paterno, 'class' => 'lbl_left_form' %> </span>
+						        <%= f.text_field :last_name, 'class' => 'cajitas' %>
+						      </label>
+
+						      <label>
+						        <%= f.label :Apellido_Materno, 'class' => 'lbl_left_form' %>
+						        <%= f.text_field :surname, 'class' => 'cajitas' %>
+						      </label>  
+
+						      <label>
+						          <%= f.label :Sexo, 'class' => 'lbl_left_form' %>
+						          <%= f.collection_select :sex_id, Sex.all, :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+						      </label>  
+
+						      <label>
+						          <%= f.label :Tipo_de_Documento, 'class' => 'lbl_left_form' %>
+						          <%= f.collection_select :doc_type_id, DocType.all, :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+						      </label>  
+
+						      <label>
+						        <%= f.label :Num_Documento, 'class' => 'lbl_left_form' %>
+						        <%= f.text_field :doc_number, 'class' => 'cajitas' %>
+						      </label>
+
+						      <label>
+						        <%= f.label :Usuario, 'class' => 'lbl_left_form' %>
+						        <%= f.text_field :user_name, 'class' => 'cajitas' %>
+						      </label>
+
+						      <label>
+						        <%= f.label :Email, 'class' => 'lbl_left_form' %>
+						        <%= f.text_field :mail, 'class' => 'cajitas' %>
+						      </label>
+
+						      
+						        <label>
+						          <%= f.label :Confirmar_Email, 'class' => 'lbl_left_form' %>
+						          <%= f.text_field :mail_confirmation, 'class' => 'cajitas' %>
+						        </label>
+
+						        <label>
+						          <%= f.label :Password, 'class' => 'lbl_left_form' %>
+						          <%= f.password_field :password, 'class' => 'cajitas' %>
+						        </label>
+
+						        <label>
+						          <%= f.label :Confirmar_Password, 'class' => 'lbl_left_form' %>
+						          <%= f.password_field :password_confirmation, 'class' => 'cajitas' %>
+						        </label>
+						      
+
+
+						      	<div>
+						        	<%= f.submit :class => "botones" %>
+					     		</div>
+
+
+						  	</div>
+					<% end %>
 				</div>
 
-			</div>
-			<div id="center">
-				<%= yield %>
-			</div>
-			
-			
-			<div style="clear:both"></div>
-		</div>
-		
+			<% end %>
+		<% end %>
+
 		<div id="foot">
 			LinkedIn-UPC Corporation © 2013
 
 		</div>
-	<% else %>
-	  <%= "22" %>
-	<% end %>
+	
 </div>
 <%= yield :scripts%> 
 </body>

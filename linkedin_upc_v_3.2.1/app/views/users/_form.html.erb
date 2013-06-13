@@ -58,22 +58,6 @@
         <%= f.text_field :mail, 'class' => 'cajitas' %>
       </label>
 
-<<<<<<< HEAD
-      <label>
-        <%= f.label :Confirmar_Email, 'class' => 'lbl_left_form' %>
-        <%= f.text_field :mail_confirmation, 'class' => 'cajitas' %>
-      </label>
-      
-      <label>
-        <%= f.label :Password, 'class' => 'lbl_left_form' %>
-        <%= f.password_field :password, 'class' => 'cajitas' %>
-      </label>
-
-      <label>
-        <%= f.label :Confirmar_Password, 'class' => 'lbl_left_form' %>
-        <%= f.password_field :password_confirmation, 'class' => 'cajitas' %>
-      </label>
-=======
       <% if @paramId == 1 %>
         <label>
           <%= f.label :Confirmar_Email, 'class' => 'lbl_left_form' %>
@@ -90,7 +74,7 @@
           <%= f.password_field :password_confirmation, 'class' => 'cajitas' %>
         </label>
       <%end%>
->>>>>>> 6e943c748fee5247bcc97831a68f446abcdd6865
+
 
       <div>
         <%= f.submit :class => "botones" %>
