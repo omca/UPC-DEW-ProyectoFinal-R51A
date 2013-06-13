@@ -1,7 +1,11 @@
+<% contador = 1 %>
+
 <h1>Listing concerts</h1>
 
-<table>
+<table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
+<thead>
   <tr>
+
     <th>Name</th>
     <th>Local</th>
     <th>Band</th>
@@ -9,27 +13,44 @@
     <th>Begin time,</th>
     <th>End time</th>
     <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <th colspan=3>Options</th>
 
-<% @concerts.each do |concert| %>
-  <tr>
-    <td><%= concert.name %></td>
-    <td><%= concert.local_id %></td>
-    <td><%= concert.bands.name %></td>
-    <td><%= concert.date %></td>
-    <td><%= concert.begin_time %></td>
-    <td><%= concert.end_time %></td>
-    <td><%= concert.status %></td>
-    <td><%= link_to 'Ver', concert %></td>
-    <td><%= link_to 'Editar', edit_concert_path(concert) %></td>
-    <td><%= link_to 'Eliminar', concert, method: :delete, data: { confirm: 'Esta seguro que desea eliminar?' } %></td>
   </tr>
-<% end %>
+</thead> 
+
+<tbody>
+    <% @concerts.each do |concert| %>
+      <% contador+=1; %>
+      <% if contador % 2 != 0 %> 
+        <% @clase = "fila_par detalle"  %>
+      <% else %>
+        <% @clase = "fila_impar detalle"  %>
+      <% end %>
+    <tr class="<%= @clase %>" >
+        <td><%= concert.name %></td>
+        <td><%= concert.local_id %></td>
+        <td><%= concert.bands.name %></td>
+        <td><%= concert.date %></td>
+        <td><%= concert.begin_time %></td>
+        <td><%= concert.end_time %></td>
+        <td><%= concert.status %></td>
+        <td><%= link_to concert do %>
+            <%= image_tag('/assets/search.png') %>
+          <% end %>
+        </td>
+        <td><%= link_to edit_concert_path(concert) do %>
+            <%= image_tag('/assets/editar.png') %>
+          <% end %>
+        <td>
+          <%= link_to concert, method: :delete, data: { confirm: '¿Estas Seguro de Eliminar?' } do %>
+            <%= image_tag('/assets/eliminar.png') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
+<br>
 
 <%= link_to 'Nuevo Concierto', new_concert_path %>

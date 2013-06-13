@@ -11,33 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :name %>
+  <div id="div_form">
+      <label>
+        <span> <%= f.label :Nombre, 'class' => 'lbl_left_form' %> </span>
+        <%= f.text_field :name, 'class' => 'cajitas' %>
+      </label>
+
+      <label>
+        <span> <%= f.label :Local, 'class' => 'lbl_left_form' %> </span>
+        <%= f.collection_select :local_id, Local.all, 
+        :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+      </label>
+
+      <label>
+        <span> <%= f.label :Banda, 'class' => 'lbl_left_form' %> </span>
+        <%= f.collection_select :band_id, Band.all, 
+        :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+      </label>
+
+      <label>
+        <span> <%= f.label :Fecha, 'class' => 'lbl_left_form' %> </span>
+        <%= f.date_select :date, 'class' => 'cajitas' %>
+      </label>
+
+      <label>
+        <span> <%= f.label :Hora_Inicio, 'class' => 'lbl_left_form' %> </span>
+        <%= f.time_select :begin_time, 'class' => 'cajitas' %>
+      </label>
+      
+      <label>
+        <span> <%= f.label :Hora_Final, 'class' => 'lbl_left_form' %> </span>
+        <%= f.time_select :end_time, 'class' => 'cajitas' %>
+      </label>
+
+  <div>
+    <%= f.submit "Registrar Concierto", :class => "botones" %>
   </div>
-  <div class="field">
-    <%= f.label :local %><br>
-    <%= f.collection_select :local_id,
-      Local.all, :id, :name, :prompt =>true %>
-  </div>
-  <div class="field">
-    <%= f.label :banda %><br>
-    <%= f.collection_select :band_id,
-      Band.all, :id, :name, :prompt =>true %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :begin_time %><br />
-    <%= f.time_select :begin_time %>
-  </div>
-  <div class="field">
-    <%= f.label :end_time %><br />
-    <%= f.time_select :end_time %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+</div>
 <% end %>
