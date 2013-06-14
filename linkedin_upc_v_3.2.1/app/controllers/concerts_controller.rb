@@ -1,8 +1,33 @@
 class ConcertsController < ApplicationController
+
   # GET /concerts
   # GET /concerts.json
+
+  def search
+    #@q = params[:name]
+    @nomConcierto = params[:name]
+    @arrBanda = params[:band]
+    @arrLocal = params[:local]
+    @banda = @arrBanda["band_id"]
+    @locales = @arrLocal["local_id"]
+    
+    
+    #@concerts = Concert.all(:conditions => "name LIKE '%#{@q}%'")
+    @concerts = Concert.where(
+      "name like '%#{@nomConcierto}%' 
+      AND band_id like '%#{@banda}%' 
+      AND local_id like '%#{@locales}%' 
+    
+
+      "
+      )
+    @var = @concerts.size
+
+  end
+
   def index
     @concerts = Concert.all
+    @bands = Band.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -32,6 +57,8 @@ class ConcertsController < ApplicationController
     end
   end
 
+
+
   # GET /concerts/1/edit
   def edit
     @concert = Concert.find(params[:id])
@@ -40,6 +67,7 @@ class ConcertsController < ApplicationController
   # POST /concerts
   # POST /concerts.json
   def create
+    
     @concert = Concert.new(params[:concert])
 
     respond_to do |format|

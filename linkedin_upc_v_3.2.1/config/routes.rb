@@ -19,7 +19,7 @@ LinkedinUpcV321::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "registrarse" => "sessions#new", :as => "registrarse"
 
-  get "search" => "concerts#search", :as => "search"
+  post "search" => "concerts#search", :as => "search"
 
 
   
