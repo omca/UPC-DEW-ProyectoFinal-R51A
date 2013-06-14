@@ -1,0 +1,36 @@
+<%= form_for(@users_band) do |f| %>
+  <% if @users_band.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@users_band.errors.count, "error") %> prohibited this users_band from being saved:</h2>
+
+      <ul>
+      <% @users_band.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="div_form">
+
+      <ul>
+  
+      <label>
+       <span> <%= f.label :Grupo, 'class' => 'lbl_left_form' %> </span>
+        <%=  f.label @users_band.band.name , 'class' => 'cajitas' %>
+      </label>
+      </ul>
+      <ul>
+      <label>
+        <span> <%= f.label :usuario, 'class' => 'lbl_left_form' %> </span>
+        <%= f.collection_select :user_id, User.all, 
+        :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas1" %>
+      </label>
+      </ul>
+
+      <div>
+        <%= f.submit "Registrar Usuarios por Grupo", :class => "botones" %>
+      </div>
+
+</div>
+<% end %>

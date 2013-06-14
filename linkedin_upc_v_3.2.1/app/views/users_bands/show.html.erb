@@ -2,22 +2,45 @@
 
 
 <p id="notice"><%= notice %></p>
+<table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
+  <thead>
+    <tr>
+      <b>Grupo de Musica:  </b>
+      <%= @users_band.band.name %>
+    </tr>
+      <tr>
+      <th>Integrantes</th>
+      <th colspan=2>Opciones</th>
+    </tr>
+  </thead>
 
-<p>
-  <b>Band:</b>
-  <%= @users_band.band.name %>
-</p>
+  <tbody>
 
-<table>
+  <% @users_band1.each do |users_band| %>
+    <% contador+=1; %>
+      <% if contador % 2 != 0 %> 
+        <% @clase = "fila_par detalle"  %>
+      <% else %>
+        <% @clase = "fila_impar detalle"  %>
+      <% end %>
 
-  <% @users_band1.each do |user| %>
-     <tr>
+     <tr class="<%= @clase %>" >
      	<td>
-     	  <%= user.user.name %>	
+     	  <%= users_band.user.name %>	
      	</td>
+      <td>
+        <%= link_to edit_users_band_path(users_band) do %>
+        <%= image_tag('/assets/editar.png') %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to users_band, method: :delete, data: { confirm: '¿Estas Seguro de Eliminar?' } do %>
+        <%= image_tag('/assets/eliminar.png') %>
+        <% end %>
+      </td>
      </tr>
   <% end %>
-
+  </tbody>
 </table>
 
 
