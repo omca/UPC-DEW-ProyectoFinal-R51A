@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Grupo de Musica</th>
-      <th>Usuarios</th>
+      <th>Integrantes</th>
       <th colspan=3>Opciones</th>
     </tr>
   </thead>
@@ -23,7 +23,7 @@
      <tr class="<%= @clase %>" >
 
         <td><%= users_band.band.name %></td>
-        <td><%= users_band.user.name %></td>
+        <td><%= UsersBand.count(:band_id, :conditions => ["band_id=?",users_band.band.id] ) %></td>
 
         <td>
           <%= link_to users_band do %>
