@@ -12,12 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :concert_id %><br />
-    <%= f.text_field :concert_id %>
+    <span style="font-weight:bold">Concierto:</span> <%= @concert.name %>
+    <%= f.hidden_field :concert_id, :value => @concert.id %>
+    
   </div>
   <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_field :text %>
+    <span style="font-weight:bold">Comentario: </span>
+    
+    <%= f.text_area :text, :cols => 30, :rows => 3 %>
   </div>
   <div class="actions">
     <%= f.submit %>

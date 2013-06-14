@@ -99,7 +99,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					
 					<% if (session[:flag_session] == true) %>
 						<div style="text-align:right; width:300px;">
-							<span style="font-weight:bold"><%= session[:user_id] %> <span>| <%= link_to "Salir", logout_path %>
+							<span style="font-weight:bold"><%= session[:user_name] %> <span>| <%= link_to "Salir", logout_path %>
 						</div>
 					<% else %>
 						<%= form_tag sessions_path, :id => 'frmLogin' do %>
