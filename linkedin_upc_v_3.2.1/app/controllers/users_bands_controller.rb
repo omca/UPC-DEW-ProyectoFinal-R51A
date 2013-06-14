@@ -14,8 +14,8 @@ class UsersBandsController < ApplicationController
   # GET /users_bands/1
   # GET /users_bands/1.json
   def show
-   # @users_band = UsersBand.find(params[:id ])
-   @users_band = UsersBand.all(:conditions => ["band_id=?",params[:id ]])
+    @users_band = UsersBand.find(params[:id ])
+    @users_band1 = UsersBand.all(:conditions => ["band_id=?",@users_band.band_id ])
 
     respond_to do |format|
       format.html # show.html.erb
