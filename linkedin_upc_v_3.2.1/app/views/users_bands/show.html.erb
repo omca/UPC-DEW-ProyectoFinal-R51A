@@ -1,3 +1,6 @@
+<% contador = 1 %>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,17 +8,12 @@
   <%= @users_band.band.name %>
 </p>
 
-<p>
-  <strong>Integrantes:</strong>
-  <%= @users_band.user.name %>
-</p>
-
 <table>
 
-  <% @users_band.each do |user| %>
+  <% @users_band1.each do |user| %>
      <tr>
      	<td>
-     	  <%= user.name %>	
+     	  <%= user.user.name %>	
      	</td>
      </tr>
   <% end %>
@@ -23,6 +21,5 @@
 </table>
 
 
-<%= link_to 'Editar', edit_users_band_path(@users_band) %> |
 <%= link_to 'Atrás', users_bands_path %>
 
