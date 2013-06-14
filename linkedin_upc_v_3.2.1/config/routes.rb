@@ -17,10 +17,12 @@ LinkedinUpcV321::Application.routes.draw do
   
   
   get "logout" => "sessions#destroy", :as => "logout"
-
   get "registrarse" => "sessions#new", :as => "registrarse"
-  
 
+  post "search" => "concerts#search", :as => "search"
+
+
+  
   resources :application
   
   resources :sexes

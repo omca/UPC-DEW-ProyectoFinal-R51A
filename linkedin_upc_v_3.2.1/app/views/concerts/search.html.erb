@@ -1,0 +1,78 @@
+
+<% contador = 1 %>
+
+<h1>Busqueda de Conciertos</h1>
+
+<%= form_tag("/search", :method => "post")  do %>
+    <div style="width:100%; margin-bottom:10px; ">
+      <fieldset>
+        <legend>Busqueda</legend>
+          <span style="padding-right:10px;">
+            Concierto <%= text_field_tag :name  %>
+          </span>
+          <span style="padding-right:10px;">
+            Local
+            <%= select("local", "local_id", 
+                Local.all.collect {|p| [ p.name, p.id ] },                
+                {:selected => @locales,:prompt => 'Seleccionar'},
+                 :style => "width:110px"
+                )
+            %>
+          </span>
+
+          <span style="padding-right:10px;">
+            Banda
+            <%= select("band", "band_id", 
+                Band.all.collect {|p| [ p.name, p.id ] },
+                {:selected => @banda,:prompt => 'Seleccionar'},
+                :style => "width:110px")
+            %>
+          </span>
+
+          <%= submit_tag "Buscar", :class => 'actions' %>
+      </fieldset>
+    </div>
+<% end %>
+
+<table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
+<thead>
+  <tr>
+
+    <th>Name</th>
+    <th>Local</th>
+    <th>Band</th>
+    
+    <th colspan=3>Options</th>
+
+  </tr>
+</thead> 
+
+<tbody>
+    <% @concerts.each do |concert| %>
+      <% contador+=1 %>
+      <% if contador % 2 != 0 %> 
+        <% @clase = "fila_par detalle"  %>
+      <% else %>
+        <% @clase = "fila_impar detalle"  %>
+      <% end %>
+    <tr class="<%= @clase %>" >
+        <td><%= concert.name %></td>
+        <td><%= concert.local.name %></td>
+        <td><%= concert.band_id %></td>
+        
+        <td><%= link_to concert do %>
+            <%= image_tag('/assets/search.png') %>
+          <% end %>
+        </td>
+        <td><%= link_to edit_concert_path(concert) do %>
+            <%= image_tag('/assets/editar.png') %>
+          <% end %>
+        <td>
+          <%= link_to concert, method: :delete, data: { confirm: '¿Estas Seguro de Eliminar?' } do %>
+            <%= image_tag('/assets/eliminar.png') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
