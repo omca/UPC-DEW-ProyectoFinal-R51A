@@ -7,4 +7,6 @@ class Concert < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :local_id
   validates_presence_of :band_id
+  validates_uniqueness_of :local_id
+  
 end
