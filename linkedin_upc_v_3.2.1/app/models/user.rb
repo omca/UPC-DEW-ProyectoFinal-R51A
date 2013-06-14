@@ -15,5 +15,7 @@ class User < ActiveRecord::Base
 
 	validates_uniqueness_of :doc_number, :mail
 	validates_confirmation_of :password, :mail
+
+	
 	
 end
