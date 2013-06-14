@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
 		user = User.find_by_mail(params[:email])
 		if user && user.password == params[:password]
 			session[:flag_session] = true
-			session[:user_id] = user.name + " " + user.last_name + " " + user.surname
+			session[:user_id] = user.id
+			session[:user_name] = user.name + " " + user.last_name + " " + user.surname
 			redirect_to @usuario
 		else
 			#:notice => "Invalid email or password"

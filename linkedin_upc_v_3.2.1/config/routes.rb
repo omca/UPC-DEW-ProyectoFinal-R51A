@@ -20,6 +20,7 @@ LinkedinUpcV321::Application.routes.draw do
   get "registrarse" => "sessions#new", :as => "registrarse"
 
   post "search" => "concerts#search", :as => "search"
+  get "ver" => "comments#ver", :as => "ver"
 
 
   

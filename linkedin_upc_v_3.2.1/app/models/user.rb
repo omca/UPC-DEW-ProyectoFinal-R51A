@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   	has_many :assistances
 
 	validates_presence_of :user_type_id, :name, :last_name, :surname, 
-	:doc_type_id, :doc_number, :user_name, :mail, :password, :sex_id
+	:doc_type_id, :doc_number, :user_name, :mail, :password, :sex_id,
+	 :message => "%{value} no puede ser vacio"
 
 	validates_uniqueness_of :doc_number, :mail
 	validates_confirmation_of :password, :mail

@@ -1,25 +1,34 @@
-<h1>Listing comments</h1>
+<% contador = 1 %>
 
-<table>
-  <tr>
-    <th>Concert</th>
-    <th>Text</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>LISTA CONCIERTOS</h1>
 
-<% @comments.each do |comment| %>
+<table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
+<thead>
   <tr>
-    <td><%= comment.concert_id %></td>
-    <td><%= comment.text %></td>
-    <td><%= link_to 'Show', comment %></td>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <th>Conciertos</th>
+    <th>Local</th>
+    <th colspan=2>Opciones</th>
+
   </tr>
-<% end %>
+</thead> 
+
+<tbody>
+    <% @concerts.each do |concert| %>
+      <% contador+=1; %>
+      <% if contador % 2 != 0 %> 
+        <% @clase = "fila_par detalle"  %>
+      <% else %>
+        <% @clase = "fila_impar detalle"  %>
+      <% end %>
+    <tr class="<%= @clase %>" >
+        <td><%= concert.name %></td>
+        <td><%= concert.local.name %></td>
+        <td><%= link_to "comentar", :controller => "comments", :action => "new", :id => concert.id   %>
+        </td>
+        <td><%= link_to "Ver Comentarios", :controller => "comments", :action => "ver", :id => concert.id   %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Comment', new_comment_path %>

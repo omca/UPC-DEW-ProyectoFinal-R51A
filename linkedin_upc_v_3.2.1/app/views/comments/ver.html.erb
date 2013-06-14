@@ -1,0 +1,29 @@
+
+<% contador = 1 %>
+
+<h1>COMENTARIOS</h1>
+
+<table id="myTable"  class="tablesorter" border="0">
+	<tr>
+		<td width=100>Concierto:</td>
+		<td><%= @concert.name %></td>
+	</tr>
+</table>
+<br />
+
+<div style="height:300px; overflow-y:scroll; margin-bottom:40px;">
+	<% @comment.each do |comment| %>
+
+		<div style="width:550px; margin:0px 10px 30px 40px; box-shadow: 3px 3px 3px #888888; ">
+			<div>
+				<span style="font-weight:bold">Registrador por:</span>
+				<%= comment.user.name + " " + comment.user.last_name + " " + comment.user.surname %>
+				 - <%= comment.created_at %>
+			</div>
+			<div style="padding:0px;">
+				<span><%= comment.text %></span>
+			</div>
+		</div>
+	<% end %>
+
+<div>

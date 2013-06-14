@@ -1,8 +1,22 @@
 class CommentsController < ApplicationController
+
+  # GET /comments/1
+  # GET /comments/1.json
+  def ver
+    @paramId = params["id"]
+    @concert = Concert.find(params["id"])
+    
+    @comment = Comment.where(
+      "concert_id = #{@paramId}  ")
+    @var = @comment.size
+
+  end
+
   # GET /comments
   # GET /comments.json
   def index
     @comments = Comment.all
+    @concerts = Concert.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,8 +37,10 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   # GET /comments/new.json
-  def new
+  def new    
     @comment = Comment.new
+    @paramId = params["id"]
+    @concert = Concert.find(params["id"])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +56,16 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+    
     @comment = Comment.new(params[:comment])
+
+    @comment.concert_id = params[:comment][:concert_id]
+    @comment.create_user = session[:user_id]
+    @comment.user_id = session[:user_id]
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @comment, notice: 'El comentario fue registrado correctamente.' }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { render action: "new" }
