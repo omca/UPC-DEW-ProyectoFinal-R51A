@@ -1,9 +1,35 @@
 LinkedinUpcV321::Application.routes.draw do
 
-  root :to => "users#login"
+  root :to => "sessions#index"
 
+  match "home" => "sessions#index"
+  match "tipoDocumentos" => "doc_types#index"
+  match "tipoUsuarios" => "user_types#index"
+  match "usuarios" => "users#index"
+  match "asistencias" => "assistances#index"
+
+  match "estilos" => "styles#index"
+  match "bandas" => "bands#index"
+  match "distritos" => "districts#index"
+  match "locales" => "locals#index"
+  match "conciertos" => "concerts#index"
+  match "comentarios" => "comments#index"
+  
+  
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "registrarse" => "sessions#new", :as => "registrarse"
+
+  get "search" => "concerts#search", :as => "search"
+
+
+  
+  resources :application
+  
   resources :sexes
 
+  resources :sessions
+  
+  resources :logins
 
   resources :comments
 

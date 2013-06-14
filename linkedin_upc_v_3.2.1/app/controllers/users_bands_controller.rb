@@ -2,18 +2,20 @@ class UsersBandsController < ApplicationController
   # GET /users_bands
   # GET /users_bands.json
   def index
-    @users_bands = UsersBand.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users_bands }
+      @users_bands = UsersBand.all(:group => "band_id")
+      #@total = UsersBand.count(:band_id, :conditions => ["band_id=?",params[:id]])   
+      #@total = UsersBand.count(:band_id,:conditions =>"band_id=" params[:id])  
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @users_bands }
     end
   end
 
   # GET /users_bands/1
   # GET /users_bands/1.json
   def show
-    @users_band = UsersBand.find(params[:id])
+   # @users_band = UsersBand.find(params[:id ])
+   @users_band = UsersBand.all(:conditions => ["band_id=?",params[:id ]])
 
     respond_to do |format|
       format.html # show.html.erb

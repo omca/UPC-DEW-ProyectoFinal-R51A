@@ -13,18 +13,18 @@
   
   <div id="div_form">
       <label>
-        <span> <%= f.label :Tipo_de_Usuario, 'class' => 'lbl_left_form' %> </span>
+        <%= f.label :Tipo_de_Usuario, 'class' => 'lbl_left_form' %>
         <%= f.collection_select :user_type_id, UserType.all, 
         :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
       </label>
 
       <label>
-        <span> <%= f.label :Nombre, 'class' => 'lbl_left_form' %> </span>
+        <%= f.label :Nombre, 'class' => 'lbl_left_form' %>
         <%= f.text_field :name, 'class' => 'cajitas' %>
       </label>
 
       <label>
-        <span> <%= f.label :Apellido_Paterno, 'class' => 'lbl_left_form' %> </span>
+        <%= f.label :Apellido_Paterno, 'class' => 'lbl_left_form' %>
         <%= f.text_field :last_name, 'class' => 'cajitas' %>
       </label>
 
@@ -48,32 +48,18 @@
         <%= f.text_field :doc_number, 'class' => 'cajitas' %>
       </label>
 
-      <label>
-        <%= f.label :Usuario, 'class' => 'lbl_left_form' %>
-        <%= f.text_field :user_name, 'class' => 'cajitas' %>
-      </label>
+      <% if @paramId == 1 %>
+        <label>
+          <%= f.label :Usuario, 'class' => 'lbl_left_form' %>
+          <%= f.text_field :user_name, 'class' => 'cajitas' %>
+        </label>
+      <% end %>
 
       <label>
         <%= f.label :Email, 'class' => 'lbl_left_form' %>
         <%= f.text_field :mail, 'class' => 'cajitas' %>
       </label>
 
-<<<<<<< HEAD
-      <label>
-        <%= f.label :Confirmar_Email, 'class' => 'lbl_left_form' %>
-        <%= f.text_field :mail_confirmation, 'class' => 'cajitas' %>
-      </label>
-      
-      <label>
-        <%= f.label :Password, 'class' => 'lbl_left_form' %>
-        <%= f.password_field :password, 'class' => 'cajitas' %>
-      </label>
-
-      <label>
-        <%= f.label :Confirmar_Password, 'class' => 'lbl_left_form' %>
-        <%= f.password_field :password_confirmation, 'class' => 'cajitas' %>
-      </label>
-=======
       <% if @paramId == 1 %>
         <label>
           <%= f.label :Confirmar_Email, 'class' => 'lbl_left_form' %>
@@ -90,10 +76,14 @@
           <%= f.password_field :password_confirmation, 'class' => 'cajitas' %>
         </label>
       <%end%>
->>>>>>> 6e943c748fee5247bcc97831a68f446abcdd6865
 
-      <div>
-        <%= f.submit :class => "botones" %>
+
+      <div style="margin-left:150px;">
+        <% if @paramId == 1 %>
+          <%= f.submit "Registrar",:class => "botones" %>
+        <% else %>
+          <%= f.submit "Actualizar", :class => "botones" %>
+        <% end %>
       </div>
 
 

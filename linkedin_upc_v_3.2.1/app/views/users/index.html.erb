@@ -15,14 +15,13 @@
   <table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
     <thead>
       <tr>
+        <th>Tipo Usuario</th>
+        <th>Nombre</th>
+        <th>Ap. Paterno</th>
+        <th>Ap. Materno</th>
+        <th>Usuario</th>
+        <th>Email</th>
         
-        <th>User type </th>
-        <th>Name</th>
-        <th>Last name</th>
-        <th>Surname</th>
-        <th>User name</th>
-        <th>Mail</th>
-        <th>Password</th>
         <th colspan=3>Opciones</th>
       </tr>
     </thead>
@@ -37,24 +36,23 @@
         <% end %>
       
         <tr class="<%= @clase %>" >
-          
           <td><%= user.user_type.name %></td>
           <td><%= user.name %></td>
           <td><%= user.last_name %></td>
           <td><%= user.surname %></td>
           <td><%= user.user_name %></td>
           <td><%= user.mail %></td>
-          <td><%= user.password %></td>
+
           <td>
             <%= link_to user do %>
               <%= image_tag('/assets/search.png') %>
             <% end %>
           </td>
-
           <td>
             <%= link_to edit_user_path(user) do %>
               <%= image_tag('/assets/editar.png') %>
             <% end %>
+          </td>
           <td>
             <%= link_to user, method: :delete, data: { confirm: '¿Estas Seguro de Eliminar?' } do %>
               <%= image_tag('/assets/eliminar.png') %>
@@ -65,6 +63,6 @@
     </tbody>
   </table>
 <% end %>
-<br>
+<br />
 
 
