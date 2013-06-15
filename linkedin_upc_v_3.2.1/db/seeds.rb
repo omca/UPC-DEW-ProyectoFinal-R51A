@@ -60,11 +60,12 @@ District.create(:name => 'La Perla')
 District.create(:name => 'La Punta')
 District.create(:name => 'Ventanilla')
 
-#Tipos de documento (Doc_type)
-Doc_type.delete_all
 
-Doc_type.create(:name => 'TIU')
-Doc_type.create(:name => 'DNI')
+#Tipos de documento (Doc_type)
+#Doc_type.delete_all
+#
+#Doc_type.create(:name => 'TIU')
+#Doc_type.create(:name => 'DNI')
 
 #Sexo (Sex)
 Sex.delete_all
@@ -73,7 +74,7 @@ Sex.create(:name => 'Masculino', :name_abv => 'M')
 Sex.create(:name => 'Femenino', :name_abv => 'F')
 
 #Tipo de usuario (User_type)
-User_type.delete_all
-
-User_type.create(:name => 'Alumno')
-User_type.create(:name => 'Externo')
+#User_type.delete_all
+#
+#User_type.create(:name => 'Alumno')
+#User_type.create(:name => 'Externo')
