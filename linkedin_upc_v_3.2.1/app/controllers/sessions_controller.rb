@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
 		if user && user.password == params[:password]
 			session[:flag_session] = true
 			session[:user_id] = user.id
+			session[:perfil] = user.user_type_id
 			session[:user_name] = user.name + " " + user.last_name + " " + user.surname
 			redirect_to @usuario
 		else
