@@ -5,8 +5,7 @@ class Concert < ActiveRecord::Base
   has_many :assistances
   has_many :comments
   validates_presence_of :name
+  validates_uniqueness_of :local_id
   validates_presence_of :local_id
   validates_presence_of :band_id
-  validates_uniqueness_of :local_id
-  
 end

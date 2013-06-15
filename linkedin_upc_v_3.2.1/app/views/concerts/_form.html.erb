@@ -30,18 +30,23 @@
       </label>
 
       <label>
-        <span> <%= f.label :Fecha, 'class' => 'lbl_left_form' %> </span>
+        <%= f.label :Fecha, 'class' => 'lbl_left_form' %> 
         <%= f.date_select :date, 'class' => 'cajitas' %>
-      </label>
+       </label>
 
+   
       <label>
-        <span> <%= f.label :Hora_Inicio, 'class' => 'lbl_left_form' %> </span>
+           <ul>
+       <%= f.label :Hora_Inicio, 'class' => 'lbl_left_form' %> 
         <%= f.time_select :begin_time, 'class' => 'cajitas' %>
+           </ul>
       </label>
       
       <label>
-        <span> <%= f.label :Hora_Final, 'class' => 'lbl_left_form' %> </span>
+        <ul>
+         <%= f.label :Hora_Final, 'class' => 'lbl_left_form' %> 
         <%= f.time_select :end_time, 'class' => 'cajitas' %>
+        </ul>
       </label>
 
   <div>
