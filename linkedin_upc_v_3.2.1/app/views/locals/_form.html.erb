@@ -3,27 +3,11 @@
     <title>Saludos</title>
     <meta charset="utf-8">
     <script src="../app/assets/jquery/jquery.min.js" type="text/javascript"></script>
-     
-     <%= stylesheet_link_tag    "baseline.base.css"%>
-  <%= stylesheet_link_tag    "baseline.type.css"%>
-  <%= stylesheet_link_tag    "baseline.table.css"%>
-  <%= stylesheet_link_tag    "baseline.base.css"%>
-  <%= stylesheet_link_tag    "baseline.form.css"%>
-  <%= stylesheet_link_tag    "unbaseline.grid.css"%>
- 
-
-
-
-    <link rel="shortcut icon" href="/favicon.ico">
-<script type="text/javascript" src="../app/assets/javascripts/html5.js"></script>
-    <script type="text/javascript" src="../app/assets/javascripts/jquery.min.js"></script>
-    <script type="text/javascript" src="../app/assets/javascripts/jquery.twitter.js"></script>
-    <script type="text/javascript" src="../app/assets/javascripts/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="../app/assets/javascripts/demos.js"></script>
-
-    <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" media="screen" href="../app/assets/stylesheets/site.css">
+   
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRxC6Y4f-j6nECyHWigtBATtJyXyha-XU&libraries=adsense&sensor=true&language=es"></script>
-   </head>
+    </head>
 </html>
 
 <%= form_for(@local) do |f| %>
@@ -54,11 +38,11 @@
      District.all, :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
   </label>
 
-  <label>
+  <label id="longitude">
     <%= f.label :longitude , 'class' => 'lbl_left_form' %>
     <%= f.text_field :longitude, 'class' => 'cajitas'  %>
   </label>
-  <label>
+  <label id="latitude">
     <%= f.label :latitude, 'class' => 'lbl_left_form'  %>
     <%= f.text_field :latitude, 'class' => 'cajitas'  %>
   </label>
@@ -70,6 +54,7 @@
     <%= f.label :gmaps , 'class' => 'lbl_left_form' %>
     <%= f.check_box :gmaps %>
   </label>
+</br>
   <div  id="map-canvas"</div>
 
 </div>
@@ -81,35 +66,23 @@
           <%= f.submit "Actualizar", :class => "botones" %>
         <% end %>
   </div>
+<body class="dmaf">
+<div id="page" class="layout-grid">
+    
+<div class="width2">
+    Buscar direccion el google maps  <input type="text" maxlength="100" id="address" placeholder="Dirección" >
 
-  <div id="page" class="layout-grid">
-    
-    
-    <div class="column width1" id="gp">
-        <div class="g-plusone" data-size="medium"></div>
-    </div>
-    <div class="column width1" id="in">
-        <script type="IN/Share" data-counter="right"></script>
-    </div>
-    
-        <div class="demo column width4 first">
-            <div class="width2">Dirección <input type="text" maxlength="100" id="address" placeholder="Dirección" >
-<table class="unitx3">
-<tr><td class="unitx1"><strong>Latitud:</strong></td><td class="unitx2"><div id="latitude"></div></td></tr>
-<tr><td><strong>Longitud:</strong></td><td><div id="longitude"></div></td></tr>
-</table>
-<label for="submit" class="unitx2 first button"><a href="javascript:void(0)" class="send" id="search">Buscar Dirección</a></label></div><br/>
-<div id="map_canvas"></div>        </div>
-    </div>
-</section>
-            </article>
-                    <div class="width4 first" id="footer"></div>
-            <footer class="width4 clear">
-                <p><small><a href="http://alexfranco.mx" target="_blank">AlexFranco.mx</a> Content of this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</small></p>
-            </footer>
+
+    <label for="submit" class="unitx2 first button">
+        <a href="javascript:void(0)" class="send" id="search">Buscar Dirección</a>
+    </label>
+</div>
+ <br/>
+        <div id="map_canvas">
         </div>
-
-                <script type='text/javascript'>
+ </div>
+</div>
+<script type='text/javascript'>
             var map = null;
   var marker = null;
 
@@ -133,8 +106,8 @@
   function geocodeResult(results, status) {
       if (status == 'OK') {
       map.setCenter(results[0].geometry.location);
-          $('#latitude').text(results[0].geometry.location.lat());
-      $('#longitude').text(results[0].geometry.location.lng());
+          $('#local_latitude').val(results[0].geometry.location.lat());
+      $('#local_longitude').val(results[0].geometry.location.lng());
           map.fitBounds(results[0].geometry.viewport);
           marker.setPosition(results[0].geometry.location);
       } else {
@@ -168,5 +141,6 @@ $(document).ready(function() {
     
 gmaps_ads();
 });        </script>
-
+            </body>
+  
 <% end %>
