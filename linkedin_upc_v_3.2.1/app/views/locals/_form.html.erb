@@ -25,37 +25,37 @@
 
  <div id="div_form">
     <label>
-    <%= f.label :name, 'class' => 'lbl_left_form' %>
+    <%= f.label :Nombre, 'class' => 'lbl_left_form' %>
     <%= f.text_field :name, 'class' => 'cajitas' %>
     </label>
   <label>
-    <%= f.label :address, 'class' => 'lbl_left_form' %>
+    <%= f.label :Direccion, 'class' => 'lbl_left_form' %>
     <%= f.text_field :address, 'class' => 'cajitas' %>
   </label>
   <label>
-    <%= f.label :district, 'class' => 'lbl_left_form'  %>
+    <%= f.label :Distrito, 'class' => 'lbl_left_form'  %>
     <%= f.collection_select :district_id,
      District.all, :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
   </label>
 
   <label id="longitude">
-    <%= f.label :longitude , 'class' => 'lbl_left_form' %>
+    <%= f.label :longitud , 'class' => 'lbl_left_form' %>
     <%= f.text_field :longitude, 'class' => 'cajitas'  %>
   </label>
   <label id="latitude">
-    <%= f.label :latitude, 'class' => 'lbl_left_form'  %>
+    <%= f.label :latitud, 'class' => 'lbl_left_form'  %>
     <%= f.text_field :latitude, 'class' => 'cajitas'  %>
   </label>
   <label>
-    <%= f.label :phone, 'class' => 'lbl_left_form'  %>
+    <%= f.label :telefono, 'class' => 'lbl_left_form'  %>
     <%= f.text_field :phone , 'class' => 'cajitas'  %>
   </label>
   <label>
-    <%= f.label :gmaps , 'class' => 'lbl_left_form' %>
+    <%= f.label :googlemaps , 'class' => 'lbl_left_form' %>
     <%= f.check_box :gmaps %>
   </label>
 </br>
-  <div  id="map-canvas"</div>
+  
 
 </div>
  
@@ -78,7 +78,7 @@
     </label>
 </div>
  <br/>
-        <div id="map_canvas">
+        <div id="map_canvas" style="width:800px; height:380px;">
         </div>
  </div>
 </div>
