@@ -115,16 +115,29 @@
 				<div id="left">
 					<div id="menu">
 						<ul>
-							<li><%= link_to  "Tipo de Documento", tipoDocumentos_path %></li>
-							<li><%= link_to  "Tipo de Usuarios", tipoUsuarios_path %></li>
-							<li><%= link_to  "Usuarios", usuarios_path %></li>
-							<li><%= link_to  "Asistencias", asistencias_path %></li>
-							<li><%= link_to  "Estilos", estilos_path %></li>
-							<li><%= link_to  "Bandas", bandas_path %></li>
-							<li><%= link_to  "Distritos", distritos_path %></li>
-							<li><%= link_to  "Locales", locales_path %></li>
-							<li><%= link_to  "Conciertos", conciertos_path %></li>
-							<li><%= link_to  "Comentarios", comentarios_path %></li>
+							<% if (session[:perfil] == 2) %>
+								<li><%= link_to  "Tipo de Documento", tipoDocumentos_path %></li>
+								<li><%= link_to  "Tipo de Usuarios", tipoUsuarios_path %></li>
+								<li><%= link_to  "Usuarios", usuarios_path %></li>
+								<li><%= link_to  "Asistencias", asistencias_path %></li>
+								<li><%= link_to  "Estilos", estilos_path %></li>
+								<li><%= link_to  "Bandas", bandas_path %></li>
+								<li><%= link_to  "Bandas x Usuarios", users_bands_path %></li>
+								<li><%= link_to  "Distritos", distritos_path %></li>
+								<li><%= link_to  "Locales", locales_path %></li>
+								<li><%= link_to  "Conciertos", conciertos_path %></li>
+								<li><%= link_to  "Comentarios", comentarios_path %></li>
+							<% else %>	
+								<li><%= link_to  "Estilos", estilos_path %></li>
+								<li><%= link_to  "Bandas", bandas_path %></li>
+								<li><%= link_to  "Bandas x Usuarios", users_bands_path %></li>
+								<li><%= link_to  "Locales", locales_path %></li>
+								<li><%= link_to  "Conciertos", conciertos_path %></li>
+								<li><%= link_to  "Comentarios", comentarios_path %></li>
+
+							<% end %>
+							
+							
 						</ul>
 					</div>
 
