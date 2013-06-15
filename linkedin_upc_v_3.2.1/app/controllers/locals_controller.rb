@@ -24,6 +24,7 @@ class LocalsController < ApplicationController
   # GET /locals/new
   # GET /locals/new.json
   def new
+    @paramId = 1;
     @local = Local.new
 
     respond_to do |format|
@@ -34,17 +35,19 @@ class LocalsController < ApplicationController
 
   # GET /locals/1/edit
   def edit
+    @paramId = 0;
     @local = Local.find(params[:id])
   end
 
   # POST /locals
   # POST /locals.json
   def create
+    @paramId = 1;
     @local = Local.new(params[:local])
 
     respond_to do |format|
       if @local.save
-        format.html { redirect_to @local, notice: 'Local was successfully created.' }
+        format.html { redirect_to @local, notice: 'Local fue creado correctamente.' }
         format.json { render json: @local, status: :created, location: @local }
       else
         format.html { render action: "new" }
@@ -60,7 +63,7 @@ class LocalsController < ApplicationController
 
     respond_to do |format|
       if @local.update_attributes(params[:local])
-        format.html { redirect_to @local, notice: 'Local was successfully updated.' }
+        format.html { redirect_to @local, notice: 'Usuario fue actualizado correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

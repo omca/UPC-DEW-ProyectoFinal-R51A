@@ -96,7 +96,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				</div>
 
 				<div style="float:left">
-					
+					<%  session[:flag_session] = true %>
 					<% if (session[:flag_session] == true) %>
 						<div style="text-align:right; width:300px;">
 							<span style="font-weight:bold"><%= session[:user_name] %> <span>| <%= link_to "Salir", logout_path %>

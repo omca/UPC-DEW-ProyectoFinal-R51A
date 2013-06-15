@@ -3,8 +3,19 @@ attr_accessible :address, :district_id, :gmaps, :latitude, :longitude, :name, :p
   
 	belongs_to :district
 	has_many :concerts
-  acts_as_gmappable
+  
+ 
+
+validates_presence_of :name, :address, :district_id, :longitude, 
+  :latitude, :phone, 
+   :message => "%{value} no puede ser vacio"
+
+acts_as_gmappable
   def gmaps4rails_address
 	address
   end
+
+
+
+  
 end

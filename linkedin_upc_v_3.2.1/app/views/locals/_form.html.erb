@@ -3,11 +3,26 @@
     <title>Saludos</title>
     <meta charset="utf-8">
     <script src="../app/assets/jquery/jquery.min.js" type="text/javascript"></script>
-   <script>
-      $( document ).ready(function() {
-    alert( "ready!" );
-});
-    </script>
+     
+     <%= stylesheet_link_tag    "baseline.base.css"%>
+  <%= stylesheet_link_tag    "baseline.type.css"%>
+  <%= stylesheet_link_tag    "baseline.table.css"%>
+  <%= stylesheet_link_tag    "baseline.base.css"%>
+  <%= stylesheet_link_tag    "baseline.form.css"%>
+  <%= stylesheet_link_tag    "unbaseline.grid.css"%>
+ 
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+<script type="text/javascript" src="../app/assets/javascripts/html5.js"></script>
+    <script type="text/javascript" src="../app/assets/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="../app/assets/javascripts/jquery.twitter.js"></script>
+    <script type="text/javascript" src="../app/assets/javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../app/assets/javascripts/demos.js"></script>
+
+    <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRxC6Y4f-j6nECyHWigtBATtJyXyha-XU&libraries=adsense&sensor=true&language=es"></script>
    </head>
 </html>
 
@@ -24,42 +39,134 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
- 
-  <div class="field">
-    <%= f.label :district %><br />
+ <div id="div_form">
+    <label>
+    <%= f.label :name, 'class' => 'lbl_left_form' %>
+    <%= f.text_field :name, 'class' => 'cajitas' %>
+    </label>
+  <label>
+    <%= f.label :address, 'class' => 'lbl_left_form' %>
+    <%= f.text_field :address, 'class' => 'cajitas' %>
+  </label>
+  <label>
+    <%= f.label :district, 'class' => 'lbl_left_form'  %>
     <%= f.collection_select :district_id,
-     District.all, :id, :name, :prompt =>true %>
-  </div>
+     District.all, :id, :name, options ={:prompt => "Seleccione"}, :class => "cajitas" %>
+  </label>
 
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :gmaps %><br />
+  <label>
+    <%= f.label :longitude , 'class' => 'lbl_left_form' %>
+    <%= f.text_field :longitude, 'class' => 'cajitas'  %>
+  </label>
+  <label>
+    <%= f.label :latitude, 'class' => 'lbl_left_form'  %>
+    <%= f.text_field :latitude, 'class' => 'cajitas'  %>
+  </label>
+  <label>
+    <%= f.label :phone, 'class' => 'lbl_left_form'  %>
+    <%= f.text_field :phone , 'class' => 'cajitas'  %>
+  </label>
+  <label>
+    <%= f.label :gmaps , 'class' => 'lbl_left_form' %>
     <%= f.check_box :gmaps %>
+  </label>
+  <div  id="map-canvas"</div>
+
+</div>
+ 
+  <div style="margin-left:150px;">
+        <% if @paramId == 1 %>
+          <%= f.submit "Registrar",:class => "botones" %>
+        <% else %>
+          <%= f.submit "Actualizar", :class => "botones" %>
+        <% end %>
   </div>
-  <div id="map-canvas"></div>
 
+  <div id="page" class="layout-grid">
+    
+    
+    <div class="column width1" id="gp">
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    <div class="column width1" id="in">
+        <script type="IN/Share" data-counter="right"></script>
+    </div>
+    
+        <div class="demo column width4 first">
+            <div class="width2">Dirección <input type="text" maxlength="100" id="address" placeholder="Dirección" >
+<table class="unitx3">
+<tr><td class="unitx1"><strong>Latitud:</strong></td><td class="unitx2"><div id="latitude"></div></td></tr>
+<tr><td><strong>Longitud:</strong></td><td><div id="longitude"></div></td></tr>
+</table>
+<label for="submit" class="unitx2 first button"><a href="javascript:void(0)" class="send" id="search">Buscar Dirección</a></label></div><br/>
+<div id="map_canvas"></div>        </div>
+    </div>
+</section>
+            </article>
+                    <div class="width4 first" id="footer"></div>
+            <footer class="width4 clear">
+                <p><small><a href="http://alexfranco.mx" target="_blank">AlexFranco.mx</a> Content of this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons Attribution-Share Alike 3.0 Unported License</a>.</small></p>
+            </footer>
+        </div>
 
+                <script type='text/javascript'>
+            var map = null;
+  var marker = null;
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  function initialize() {
+      var myLatlng = new google.maps.LatLng(20.68009, -101.35403);
+      var myOptions = {
+          zoom: 4,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map = new google.maps.Map($("#map_canvas").get(0), myOptions);
+    marker = new google.maps.Marker({ map: map });
+  }
+
+  $('#search').live('click', function() {
+      var address = $('#address').val();
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': address}, geocodeResult);
+  });
+
+  function geocodeResult(results, status) {
+      if (status == 'OK') {
+      map.setCenter(results[0].geometry.location);
+          $('#latitude').text(results[0].geometry.location.lat());
+      $('#longitude').text(results[0].geometry.location.lng());
+          map.fitBounds(results[0].geometry.viewport);
+          marker.setPosition(results[0].geometry.location);
+      } else {
+          alert("Geocoding no tuvo éxito debido a: " + status);
+      }
+  }
+function inicializacion() {
+    //Creo un nuevo mapa situado en Buenos Aires, Argentina, con 13 de Zoom y del tipo ROADMAP
+    var mapa = new google.maps.Map(document.getElementById("map_canvas"),{center: new google.maps.LatLng(-34.60371794474704, -58.38158369064331),zoom: 13,mapTypeId: google.maps.MapTypeId.ROADMAP});
+        
+    //Creo un evento asociado a "mapa" cuando se hace "click" sobre el
+    google.maps.event.addListener(mapa, "click", function(evento) {
+        //Obtengo las coordenadas separadas
+        var latitud = evento.latLng.lat();
+        var longitud = evento.latLng.lng();
+            
+        //Puedo unirlas en una unica variable si asi lo prefiero
+        var coordenadas = evento.latLng.lat() + ", " + evento.latLng.lng();
+            
+        //Las muestro con un popup
+        alert(coordenadas);
+            
+        //Creo un marcador utilizando las coordenadas obtenidas y almacenadas por separado en "latitud" y "longitud"
+        var coordenadas = new google.maps.LatLng(latitud, longitud); /* Debo crear un punto geografico utilizando google.maps.LatLng */
+        var marcador = new google.maps.Marker({position: coordenadas,map: mapa, animation: google.maps.Animation.DROP, title:"Un marcador cualquiera"});
+    }); //Fin del evento
+        
+} // Fin inicializacion()
+$(document).ready(function() {
+    initialize();
+    
+gmaps_ads();
+});        </script>
+
 <% end %>

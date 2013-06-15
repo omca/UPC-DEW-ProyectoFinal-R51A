@@ -1,35 +1,74 @@
-<h1>Listing locals</h1>
+<% contador = 1 %>
+<div id="title">
+  <div id="texto">Listar locales</div>
+  <div id="opciones">
+    <%= link_to new_local_path, :class => "link_img", :title => "Nuevo Local" do %>
+      <%= image_tag('/assets/agregar.png') %>
+    <% end %>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
+
+
+<% if @locals.empty? %>
+  <div id="msje_no_filas">No existen locales registrados en el Sistema.</div>
+<% else %>
+  <table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
+    <thead>
+      <tr>
+        <th>Name</th>
     <th>Address</th>
     <th>District</th>
     <th>Longitude</th>
     <th>Latitude</th>
     <th>Phone</th>
     <th>Gmaps</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+       
+        <th colspan=3>Opciones</th>
+      </tr>
+    </thead>
 
-<% @locals.each do |local| %>
-  <tr>
-    <td><%= local.name %></td>
+    <tbody>
+      <% @locals.each do |local| %>
+        <% contador+=1; %>
+        <% if contador % 2 != 0 %> 
+          <% @clase = "fila_par detalle"  %>
+        <% else %>
+          <% @clase = "fila_impar detalle"  %>
+        <% end %>
+      
+        <tr class="<%= @clase %>" >
+           <td><%= local.name %></td>
     <td><%= local.address %></td>
     <td><%= local.district.name %></td>
     <td><%= local.longitude %></td>
     <td><%= local.latitude %></td>
     <td><%= local.phone %></td>
     <td><%= local.gmaps %></td>
-    <td><%= link_to 'Show', local %></td>
-    <td><%= link_to 'Edit', edit_local_path(local) %></td>
-    <td><%= link_to 'Destroy', local, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+          <td>
+            <%= link_to local do %>
+              <%= image_tag('/assets/search.png') %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_local_path(local) do %>
+              <%= image_tag('/assets/editar.png') %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to local, method: :delete, data: { confirm: '¿Estas Seguro de Eliminar?' } do %>
+              <%= image_tag('/assets/eliminar.png') %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
-</table>
+
+
 
 <br />
 
-<%= link_to 'New Local', new_local_path %>
+<%= link_to 'Nuevo Local', new_local_path %>
